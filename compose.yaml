@@ -1,0 +1,41 @@
+
+services:
+  micro-ros-agent:
+    image: microros/micro-ros-agent:humble
+    privileged: true
+    network_mode: host
+    ipc : host
+    restart: always
+    command: [ "multiserial", "--devs",  "/dev/ttyS0", "-b", "460800"]
+    volumes:
+      - /dev:/dev
+
+
+  # CHANGEME
+  ros2-ws:
+    build:
+      dockerfile: .devcontainer/Dockerfile.deploy
+    privileged: true
+    restart: always
+    network_mode: host
+
+    volumes:
+      - /dev:/dev
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
+      - .:/home/vrc/ws/src
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    environment:
+      - DISPLAY=$DISPLAY
+      - NVIDIA_DRIVER_CAPABILITIES=all
+
+    # entrypoint: /entrypoint.sh
+    entrypoint: /launch_entrypoint.sh
+    command: ros2 run rviz2 rviz2

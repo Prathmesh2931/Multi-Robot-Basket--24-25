@@ -1,0 +1,10 @@
+FROM shvass/humble:dev
+
+
+WORKDIR /home/vrc/ws
+
+# copy the source code and install all project dependencies and build and delete sourcecode
+COPY --chown=1000:1000 . src/
+RUN . /entrypoint.sh && sudo rosdep init && rosdep update && rosdep install --from-paths src --ignore-src -r -y \
+    && colcon build \
+    && rm src -r

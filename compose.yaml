@@ -12,7 +12,7 @@ services:
 
 
   # CHANGEME
-  ros2-ws:
+  twin-ws:
     build:
       dockerfile: .devcontainer/Dockerfile.deploy
     privileged: true

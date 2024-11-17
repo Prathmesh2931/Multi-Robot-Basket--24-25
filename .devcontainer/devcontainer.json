@@ -1,6 +1,6 @@
 {
   // CHANGEME
-  "name": "ros-template",
+  "name": "twin-ws",
   "dockerFile": "${localWorkspaceFolder}/.devcontainer/Dockerfile",
   "runArgs": [
     "--privileged",
@@ -14,10 +14,12 @@
   },
 
   "context": "${localWorkspaceFolder}",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/vrc/ws,type=bind",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/vrc/ws/src,type=bind",
   "workspaceFolder": "/home/vrc/ws",
   "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind",
+    "source=/dev,target=/dev,type=bind"
+
   ],
   "customizations": {
     "vscode": {

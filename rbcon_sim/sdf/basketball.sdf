@@ -1,0 +1,37 @@
+
+<?xml version="1.0" ?>
+<sdf version="1.8">
+
+    <model name="basketball">
+        <link name="link">
+
+            <collision name="collision">
+                <geometry>
+                    <sphere>
+                        <radius>0.117</radius>
+                    </sphere>
+                </geometry>
+
+                <max_contacts>10</max_contacts>
+                <surface>
+                    <bounce>
+                        <restitution_coefficient>0.8</restitution_coefficient>
+                        <threshold>0.01</threshold>
+                    </bounce>
+                </surface>
+
+            </collision>
+
+            <intertial>
+                <mass value="1.1"/>
+            </intertial>
+            <visual name="visual">
+            <geometry>
+                <sphere>
+                    <radius>0.117</radius>
+                </sphere>
+            </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>

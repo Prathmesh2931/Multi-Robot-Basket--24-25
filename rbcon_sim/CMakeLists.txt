@@ -30,6 +30,8 @@ install(DIRECTORY
   launch
   sdf
   meshes
+  config
+  xacro
   DESTINATION share/${PROJECT_NAME}/
 )
 

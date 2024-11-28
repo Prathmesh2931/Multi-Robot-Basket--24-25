@@ -6,46 +6,24 @@ from launch.substitutions import PathJoinSubstitution, LaunchConfiguration, Text
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
-
 def generate_launch_description():
     gz_share = get_package_share_directory('ros_gz_sim')
-    # pkg_spaceros_gz_sim = get_package_share_directory('rbcon_sim')
-    # gz_launch_path = PathJoinSubstitution([pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'])
-    # gz_model_path = PathJoinSubstitution([pkg_spaceros_gz_sim, 'models'])
+    pkg_share = get_package_share_directory('rbcon_sim')
+    
+    defaultWorld = PathJoinSubstitution([pkg_share, "sdf", "basketball_arena.sdf"])
+    
 
-    # return LaunchDescription([
-    #     DeclareLaunchArgument(
-    #         'world',
-    #         default_value='moon',
-    #         choices=['moon', 'mars', 'enceladus'],
-    #         description='World to load into Gazebo'
-    #     ),
-    #     SetLaunchConfiguration(name='world_file', 
-    #                            value=[LaunchConfiguration('world'), 
-    #                                   TextSubstitution(text='.sdf')]),
-    #     SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', gz_model_path),
-    #     IncludeLaunchDescription(
-    #         PythonLaunchDescriptionSource(gz_launch_path),
-    #         launch_arguments={
-    #             'gz_args': [PathJoinSubstitution([pkg_spaceros_gz_sim, 'worlds',
-    #                                               LaunchConfiguration('world_file')])],
-    #             'on_exit_shutdown': 'True'
-    #         }.items(),
-    #     ),
-    #     Node(
-    #         package='ros_gz_bridge',
-    #         executable='parameter_bridge',
-    #         arguments=[],
-    #         remappings=[],
-    #         output='screen'
-    #     ),
-    # ])
+    gazebo = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(PathJoinSubstitution([gz_share, 'launch', 'gz_sim.launch.py'])),
+                    launch_arguments=[("gz_args", defaultWorld)]
+            )
     
-    
-    gazebo_sim = IncludeLaunchDescription(PathJoinSubstitution([gz_share, 'launch', 'gz_sim.launch.py']), 
-                                          launch_arguments=["gz_args:='src/rbcon_sim/sdf/basketball_arena.sdf'"])
-    
+
+    bridge_config = PathJoinSubstitution([pkg_share, "config", "bridge_config.yaml"])
+    ros_ign_bridge = Node(package='ros_gz_bridge', executable='parameter_bridge', parameters=[{"config_file": bridge_config}])
+
+
     return LaunchDescription([
-        gazebo_sim,
-        
+        gazebo,
+        ros_ign_bridge
     ])

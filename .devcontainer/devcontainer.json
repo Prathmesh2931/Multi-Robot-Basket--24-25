@@ -26,7 +26,8 @@
       "extensions": [
         "deitry.colcon-helper",
         "mhutchie.git-graph",
-        "donjayamanne.python-extension-pack"
+        "donjayamanne.python-extension-pack",
+        "redhat.vscode-xml"
       ]
     }
   }

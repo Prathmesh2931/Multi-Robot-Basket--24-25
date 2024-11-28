@@ -100,7 +100,7 @@
             </link>
 
             <link name="hit_plane">
-                <pose>0 0 0.6 0 0 0</pose>
+                <pose>0 0 0.7 0 0 0</pose>
                 <collision name="collision">
                     <geometry>
                         <plane>

@@ -1,0 +1,129 @@
+<?xml version="1.0" ?>
+<robot name="shooting_set" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="lb_wheel_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="lf_front_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="rb_wheel_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="rf_wheel_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="frame_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_2_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_3_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_4_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_5_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_6_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_7_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_8_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_9_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="upper_shaft_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="bottom_shaft_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+</robot>

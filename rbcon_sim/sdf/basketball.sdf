@@ -15,7 +15,7 @@
                 <max_contacts>10</max_contacts>
                 <surface>
                     <bounce>
-                        <restitution_coefficient>1.0</restitution_coefficient>
+                        <restitution_coefficient>0.74</restitution_coefficient>
                         <threshold>0.01</threshold>
                     </bounce>
                 </surface>
@@ -33,5 +33,13 @@
             </geometry>
             </visual>
         </link>
+
+        <gazebo>
+            <plugin filename="libignition-gazebo6-velocity-control-system.so.6"
+                name="ignition::gazebo::systems::VelocityControl">
+                <topic>ball_vel</topic>
+            </plugin>
+        </gazebo>
+
     </model>
 </sdf>

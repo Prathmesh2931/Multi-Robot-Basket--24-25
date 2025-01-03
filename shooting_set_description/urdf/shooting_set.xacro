@@ -1,0 +1,495 @@
+<?xml version="1.0" ?>
+<robot name="shooting_set" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+<xacro:arg name="robot_name" default="r1"/>
+<xacro:macro name='set_robot' params='robot_name'/>
+<xacro:property name="robot_name" value="$(arg robot_name)"/>
+<xacro:include filename="$(find shooting_set_description)/urdf/materials.xacro" />
+<!-- <xacro:include filename="$(find shooting_set_description)/urdf/shooting_set.trans" /> -->
+<!-- <xacro:include filename="$(find shooting_set_description)/urdf/shooting_set.gazebo" /> -->
+
+<xacro:include filename="$(find rbcon_sim)/xacro/gazebo.xacro"/>
+<!-- <xacro:property name="robot_name" value="r1"/> -->
+
+<!-- <xacro:property name="robot_name" value="robot2"/> -->
+<!-- <link name='world'></link> -->
+<link name="${robot_name}_base_link">
+  <inertial>
+    <origin xyz="0.0 9.292207268489756e-17 0.025" rpy="0 0 0"/>
+    <mass value="9800.3469535209761"/>
+    <inertia ixx="2.07916" iyy="2.071536" izz="4.109786" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_lb_wheel_1">
+  <inertial>
+    <origin xyz="0.0 0.010000000000000009 -2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="1.2330751165339937"/>
+    <inertia ixx="0.000812" iyy="0.001541" izz="0.000812" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175 -0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/lb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175 -0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/lb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_lf_front_1">
+  <inertial>
+    <origin xyz="0.0 0.009999999999999787 -1.0408340855860843e-17" rpy="0 0 0"/>
+    <mass value="1.2330751165339937"/>
+    <inertia ixx="0.000812" iyy="0.001541" izz="0.000812" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.175 -0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/lf_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.175 -0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/lf_front_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_rb_wheel_1">
+  <inertial>
+    <origin xyz="0.0 -0.010000000000000009 -4.85722573273506e-17" rpy="0 0 0"/>
+    <mass value="1.2330751165339937"/>
+    <inertia ixx="0.000812" iyy="0.001541" izz="0.000812" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.175 0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/rb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.175 0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/rb_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_rf_wheel_1">
+  <inertial>
+    <origin xyz="0.0 -0.010000000000000009 -6.245004513516506e-17" rpy="0 0 0"/>
+    <mass value="1.2330751165339937"/>
+    <inertia ixx="0.000812" iyy="0.001541" izz="0.000812" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.175 0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/rf_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.175 0.26 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/rf_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_frame_1">
+  <inertial>
+    <origin xyz="-0.2901920334892728 -7.433782179672166e-07 0.6075151070351665" rpy="0 0 0"/>
+    <mass value="19.47541221497945"/>
+    <inertia ixx="2.055728" iyy="2.35301" izz="1.869757" ixy="4e-06" iyz="0.0" ixz="0.198342"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.25 -0.0 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/frame_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.25 -0.0 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/frame_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_1_1">
+  <inertial>
+    <origin xyz="-4.4038692958991987e-07 0.2199999999999982 -3.4390913883353136e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.346972 0.22 -0.643067" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.346972 0.22 -0.643067" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_2_1">
+  <inertial>
+    <origin xyz="-7.405491864176383e-08 0.21999999999999878 2.6937595631881806e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.312257 0.22 -0.596895" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.312257 0.22 -0.596895" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_3_1">
+  <inertial>
+    <origin xyz="1.1723409926167605e-07 0.21999999999999964 -3.962324170991849e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.268927 0.22 -0.551064" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.268927 0.22 -0.551064" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_4_1">
+  <inertial>
+    <origin xyz="3.424262658702215e-07 0.2200000000000001 3.5659620423178495e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.227637 0.22 -0.515991" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.227637 0.22 -0.515991" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_5_1">
+  <inertial>
+    <origin xyz="1.1261047686006442e-07 0.22000000000000072 3.9150747838112565e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.177738 0.22 -0.482044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.177738 0.22 -0.482044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_6_1">
+  <inertial>
+    <origin xyz="2.8352999972836024e-07 0.2200000000000013 1.8915213934045383e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.122397 0.22 -0.45303" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.122397 0.22 -0.45303" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_7_1">
+  <inertial>
+    <origin xyz="1.7445879428590327e-07 0.22000000000000142 -3.584304592019194e-07" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.064746 0.22 -0.430713" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.064746 0.22 -0.430713" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_8_1">
+  <inertial>
+    <origin xyz="2.5863024027267256e-07 0.22000000000000167 1.184899844908216e-08" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.004463 0.22 -0.413709" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.004463 0.22 -0.413709" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_r_9_1">
+  <inertial>
+    <origin xyz="1.3161276291029367e-08 0.22000000000000186 2.5103608858323412e-08" rpy="0 0 0"/>
+    <mass value="3.9797499386134634"/>
+    <inertia ixx="0.055225" iyy="0.000768" izz="0.055225" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.086869 0.22 -0.405018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.086869 0.22 -0.405018" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/r_9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_upper_shaft_1">
+  <inertial>
+    <origin xyz="4.087776839245549e-09 0.2183484428038324 4.906737505194769e-08" rpy="0 0 0"/>
+    <mass value="8.012651249272817"/>
+    <inertia ixx="0.110666" iyy="0.033262" izz="0.110694" ixy="-0.0" iyz="0.0" ixz="-9.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.27 0.22 -0.691" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/upper_shaft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.27 0.22 -0.691" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/upper_shaft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${robot_name}_bottom_shaft_1">
+  <inertial>
+    <origin xyz="4.087777005779003e-09 0.2183484428038849 4.906737494092539e-08" rpy="0 0 0"/>
+    <mass value="8.012651249272817"/>
+    <inertia ixx="0.110666" iyy="0.033262" izz="0.110694" ixy="-0.0" iyz="0.0" ixz="-9.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.27 0.22 -0.349" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/bottom_shaft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.27 0.22 -0.349" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find shooting_set_description)/meshes/bottom_shaft_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="${robot_name}_lb_wheel_joint" type="continuous">
+  <origin xyz="-0.175 0.26 0.025" rpy="0 0 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_lb_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_lf_wheel_joint" type="continuous">
+  <origin xyz="0.175 0.26 0.025" rpy="0 0 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_lf_front_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_rb_wheel_joint" type="continuous">
+  <origin xyz="-0.175 -0.26 0.025" rpy="0 0 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_rb_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_rf_wheel_joint" type="continuous">
+  <origin xyz="0.175 -0.26 0.025" rpy="0 0 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_rf_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_frame_joint" type="fixed">
+  <origin xyz="0.25 0.0 0.05" rpy="0 -0.5 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_frame_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r1" type="continuous">
+  <origin xyz="-0.596972 -0.22 0.593067" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_1_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r2" type="continuous">
+  <origin xyz="-0.562257 -0.22 0.546895" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_2_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r3" type="continuous">
+  <origin xyz="-0.518927 -0.22 0.501064" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_3_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r4" type="continuous">
+  <origin xyz="-0.477637 -0.22 0.465991" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_4_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r5" type="continuous">
+  <origin xyz="-0.427738 -0.22 0.432044" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_5_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r6" type="continuous">
+  <origin xyz="-0.372397 -0.22 0.40303" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_6_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r7" type="continuous">
+  <origin xyz="-0.314746 -0.22 0.380713" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_7_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r8" type="continuous">
+  <origin xyz="-0.245537 -0.22 0.363709" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_8_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_r9" type="continuous">
+  <origin xyz="-0.163131 -0.22 0.355018" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_r_9_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_upper_shaft_joint" type="continuous">
+  <origin xyz="0.02 -0.22 0.641" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_upper_shaft_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${robot_name}_bottom_shaft_joint" type="continuous">
+  <origin xyz="0.02 -0.22 0.299" rpy="0 0 0"/>
+  <parent link="${robot_name}_frame_1"/>
+  <child link="${robot_name}_bottom_shaft_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+<!-- 
+<joint name="${robot_name}_world_joint" type='continuous'>
+   <origin xyz="0.02 -0.22 0.299" rpy="0 0 0"/>
+   <parent link='world'/>
+   <child link="${robot_name}_base_link"/>
+</joint> -->
+
+
+<xacro:mechanum_drive fl="${robot_name}_lf_wheel_joint" fr="${robot_name}_rf_wheel_joint" bl="${robot_name}_lb_wheel_joint" br="${robot_name}_rb_wheel_joint" radius="0.05" />
+
+</robot>

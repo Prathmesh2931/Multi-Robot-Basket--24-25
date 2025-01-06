@@ -371,6 +371,25 @@
   </collision>
 </link>
 
+<link name="${robot_name}_lidar_link_1">
+  <!-- <visual>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="0.02" radius="0.05"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+   -->
+</link>
+
+
+
+<joint name="${robot_name}_lidar_base_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_lidar_link_1"/>
+</joint>
+
 <joint name="${robot_name}_lb_wheel_joint" type="continuous">
   <origin xyz="-0.175 0.26 0.025" rpy="0 0 0"/>
   <parent link="${robot_name}_base_link"/>
@@ -491,5 +510,7 @@
 
 
 <xacro:mechanum_drive fl="${robot_name}_lf_wheel_joint" fr="${robot_name}_rf_wheel_joint" bl="${robot_name}_lb_wheel_joint" br="${robot_name}_rb_wheel_joint" radius="0.05" />
+
+<xacro:lidar frame_id="${robot_name}_lidar_link_1" topic="${robot_name}_scan"/>
 
 </robot>

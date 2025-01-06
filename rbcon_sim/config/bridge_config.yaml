@@ -4,8 +4,13 @@
   gz_type_name: "gz.msgs.Clock"
   direction: GZ_TO_ROS
 # gz topic published by Sensors plugin
-- ros_topic_name: "scan"
-  gz_topic_name: "scan"
+- ros_topic_name: "/r1/scan"
+  gz_topic_name: "/robot1_scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+- ros_topic_name: "/r2/scan"
+  gz_topic_name: "/robot2_scan"
   ros_type_name: "sensor_msgs/msg/LaserScan"
   gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS

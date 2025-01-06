@@ -29,7 +29,7 @@
 
 
         <gazebo reference="${frame_id}">
-            <sensor name="lidar_sensor" type="gpu_lidar">
+            <sensor name="${frame_id}" type="gpu_lidar">
 
                 <pose>0 0 0 0 0 0</pose>
                 <gz_frame_id>${frame_id}</gz_frame_id>
@@ -125,7 +125,9 @@
 
         <plugin filename="libignition-gazebo6-odometry-publisher-system.so"
             name="ignition::gazebo::systems::OdometryPublisher">
-            <odom_frame>${robot_name}_odom</odom_frame>
+            <!-- <odom_frame>${robot_name}_odom</odom_frame> -->
+            <odom_frame>odom</odom_frame>
+
             <robot_base_frame>${robot_name}_base_link</robot_base_frame>
             <odom_topic>/${robot_name}_odom</odom_topic>
             <tf_topic>/tf</tf_topic>
@@ -133,14 +135,13 @@
         </plugin>
 
         <plugin filename="libignition-gazebo6-imu-system.so" name="ignition::gazebo::systems::Imu" />
-        <!-- <plugin filename="libignition-sensors-lidar.so"
-        name="ignition::gazebo::sensors::Lidar"/> -->
+        <!-- <plugin filename="libignition-sensors6-gpu_lidar.so" name="ignition::gazebo::sensors::Lidar"/> -->
 
 
-        <plugin filename="libignition-gazebo-sensors-system.so"
+        <!-- <plugin filename="libignition-gazebo-sensors-system.so"
             name="ignition::gazebo::systems::Sensors">
             <render_engine>ogre</render_engine>
-        </plugin>
+        </plugin> -->
 
 
         <!-- <plugin filename="libignition-gazebo6-velocity-control-system.so.6"

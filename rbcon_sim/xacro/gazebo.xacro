@@ -125,8 +125,8 @@
 
         <plugin filename="libignition-gazebo6-odometry-publisher-system.so"
             name="ignition::gazebo::systems::OdometryPublisher">
-            <!-- <odom_frame>${robot_name}_odom</odom_frame> -->
-            <odom_frame>odom</odom_frame>
+            <odom_frame>${robot_name}_odom</odom_frame>
+            <!-- <odom_frame>odom</odom_frame> -->
 
             <robot_base_frame>${robot_name}_base_link</robot_base_frame>
             <odom_topic>/${robot_name}_odom</odom_topic>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>zeus_init</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+
+  <maintainer email="vrc@todo.todo">vrc</maintainer>
+  <license>TODO: License declaration</license>
+
+  <!-- Build Dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <!-- Execution Dependencies -->
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
+  <exec_depend>rplidar_ros</exec_depend>
+  <exec_depend>usb_cam</exec_depend>
+  <exec_depend>slam_toolbox</exec_depend>
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>zeus_description</exec_depend>
+
+  <!-- Test Dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- Membership in Groups -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <!-- Export Section -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,49 @@
+running develop
+running egg_info
+creating shooting_set_description.egg-info
+writing shooting_set_description.egg-info/PKG-INFO
+writing dependency_links to shooting_set_description.egg-info/dependency_links.txt
+writing entry points to shooting_set_description.egg-info/entry_points.txt
+writing requirements to shooting_set_description.egg-info/requires.txt
+writing top-level names to shooting_set_description.egg-info/top_level.txt
+writing manifest file 'shooting_set_description.egg-info/SOURCES.txt'
+reading manifest file 'shooting_set_description.egg-info/SOURCES.txt'
+writing manifest file 'shooting_set_description.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/lib/python3.10/site-packages/shooting-set-description.egg-link (link to .)
+
+Installed /home/prathmesh2931/twinws-asd/build/shooting_set_description
+running symlink_data
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/ament_index
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/ament_index/resource_index
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/ament_index/resource_index/packages
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/resource/shooting_set_description -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/ament_index/resource_index/packages
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/package.xml -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/launch
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/launch/display.launch.py -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/launch
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/launch/gazebo.launch.py -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/launch
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/urdf
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/urdf/shooting_set.gazebo -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/urdf
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/urdf/shooting_set.trans -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/urdf
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/urdf/materials.xacro -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/urdf
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/urdf/shooting_set.xacro -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/urdf
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_7_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_1_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_6_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_4_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_2_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_5_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/lf_front_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_9_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/upper_shaft_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/rf_wheel_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/base_link.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/rb_wheel_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/bottom_shaft_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/frame_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/lb_wheel_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_3_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/meshes/r_8_1.stl -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/meshes
+creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/config
+symbolically linking /home/prathmesh2931/twinws-asd/build/shooting_set_description/config/display.rviz -> /home/prathmesh2931/twinws-asd/install/shooting_set_description/share/shooting_set_description/config

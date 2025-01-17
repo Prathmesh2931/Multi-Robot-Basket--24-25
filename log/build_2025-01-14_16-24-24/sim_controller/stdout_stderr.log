@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating sim_controller.egg-info
+writing sim_controller.egg-info/PKG-INFO
+writing dependency_links to sim_controller.egg-info/dependency_links.txt
+writing entry points to sim_controller.egg-info/entry_points.txt
+writing requirements to sim_controller.egg-info/requires.txt
+writing top-level names to sim_controller.egg-info/top_level.txt
+writing manifest file 'sim_controller.egg-info/SOURCES.txt'
+reading manifest file 'sim_controller.egg-info/SOURCES.txt'
+writing manifest file 'sim_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/prathmesh2931/twinws-asd/install/sim_controller/lib/python3.10/site-packages/sim-controller.egg-link (link to .)
+Installing ball_spawner script to /home/prathmesh2931/twinws-asd/install/sim_controller/lib/sim_controller
+Installing launch_controller script to /home/prathmesh2931/twinws-asd/install/sim_controller/lib/sim_controller
+
+Installed /home/prathmesh2931/twinws-asd/build/sim_controller
+running symlink_data
+creating /home/prathmesh2931/twinws-asd/install/sim_controller/share/ament_index
+creating /home/prathmesh2931/twinws-asd/install/sim_controller/share/ament_index/resource_index
+creating /home/prathmesh2931/twinws-asd/install/sim_controller/share/ament_index/resource_index/packages
+symbolically linking /home/prathmesh2931/twinws-asd/build/sim_controller/resource/sim_controller -> /home/prathmesh2931/twinws-asd/install/sim_controller/share/ament_index/resource_index/packages
+symbolically linking /home/prathmesh2931/twinws-asd/build/sim_controller/package.xml -> /home/prathmesh2931/twinws-asd/install/sim_controller/share/sim_controller

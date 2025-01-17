@@ -1,0 +1,69 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/prathmesh2931/twinws-asd/build/zeus_nav
+Built target ament_cmake_python_symlink_zeus_nav
+running egg_info
+creating zeus_nav.egg-info
+writing zeus_nav.egg-info/PKG-INFO
+writing dependency_links to zeus_nav.egg-info/dependency_links.txt
+writing top-level names to zeus_nav.egg-info/top_level.txt
+writing manifest file 'zeus_nav.egg-info/SOURCES.txt'
+reading manifest file 'zeus_nav.egg-info/SOURCES.txt'
+writing manifest file 'zeus_nav.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_zeus_nav_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//launch/turtleBot_bringup_launch.py
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//config/ekf.yaml
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//config/mapper_params_online_async.yaml
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.data
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.pgm
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.posegraph
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.yaml
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//params/nav2_params.yaml
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/pythonpath.sh
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/pythonpath.dsv
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/PKG-INFO
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/top_level.txt
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav/__init__.py
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/lib/zeus_nav/zeus_nav_cmd.py
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/lib/zeus_nav/turtleBot_bringup_launch.py
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/ament_index/resource_index/package_run_dependencies/zeus_nav
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/ament_index/resource_index/parent_prefix_path/zeus_nav
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/ament_prefix_path.sh
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/ament_prefix_path.dsv
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/path.sh
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/path.dsv
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.bash
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.sh
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.zsh
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.dsv
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/package.dsv
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/ament_index/resource_index/packages/zeus_nav
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/cmake/zeus_navConfig.cmake
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/cmake/zeus_navConfig-version.cmake
+-- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/package.xml
+Listing '/home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav'...
+Compiling '/home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav/__init__.py'...

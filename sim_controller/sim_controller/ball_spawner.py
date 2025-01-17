@@ -19,23 +19,24 @@ class ball_spawn(Node):
         self.tf_listener = TransformListener(self.tf_buffer, self)
         
         self.timer = self.create_timer(2, self.tf_lookup_timer_callback)
-        
+        # self.tf_lookup_timer_callback()
         self.file_name='~/ws/src/rbcon_sim/sdf/basketball.sdf'
         self.model='basketball'
         self.spawnIndex = 0
      
     def tf_lookup_timer_callback(self):
         try:
-            tf=self.tf_buffer.lookup_transform( 'base_link',
-                                'map',
+            tf=self.tf_buffer.lookup_transform( 
+                                'robot1_odom',
+                                'robot1_base_link',
                                 rclpy.time.Time())
 
             
             self.get_logger().info(f"got transforms {tf.transform.translation} ")
             self.spawn_ball(self.file_name, self.model + str(self.spawnIndex), 
-                            tf.transform.translation.x,
+                            tf.transform.translation.x+0.05,  #0.1
                             tf.transform.translation.y,
-                            tf.transform.translation.z + 2)
+                            tf.transform.translation.z + 1.201)  #1.2
 
         except Exception as e:
             self.get_logger().info(f"failed to get transforms {e} ")
@@ -45,11 +46,11 @@ class ball_spawn(Node):
 
     def spawn_ball(self,file_name,model,pose_x,pose_y,pose_z,orie_x=0,orie_y=0,orie_z=0,orie_w=0):
         
-        self.spawnIndex += 1
+        # self.spawnIndex += 1
         self.get_logger().info("spawn service called")
         
         try:
-            ret = os.system(f'ros2 run ros_gz_sim create --file {self.file_name} -x {-pose_x} -y {-pose_y} -z {pose_z} -name {model}')
+            ret = os.system(f'ros2 run ros_gz_sim create --file {self.file_name} -x {pose_x} -y {pose_y} -z {pose_z} -name {model}')
         except:
             self.get_logger().info("systemcall failed")
 
@@ -58,8 +59,9 @@ class ball_spawn(Node):
 def main(args=None):
     rclpy.init(args=args)
     Node =ball_spawn()
+    rclpy.spin(Node)
     
-    rclpy.spin(node=Node)
+    # rclpy.spin_once(Node)
     rclpy.shutdown()
 
 

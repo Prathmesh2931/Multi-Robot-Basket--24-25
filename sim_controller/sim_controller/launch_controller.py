@@ -14,11 +14,11 @@ class launch_controller(Node):
         
         self.get_logger().info("initialized launch controller")
         
-        self.traj_pub = self.create_publisher(JointTrajectory, "joint_control", 10)
+        self.traj_pub = self.create_publisher(JointTrajectory, "/r2/joint_control", 10)
 
         self.timer = self.create_timer(0.5, self.timer_callback)
         self.traj_msg = JointTrajectory()
-        self.traj_msg.joint_names = ['frame_joint', 'upper_shaft_joint', 'bottom_shaft_joint']
+        self.traj_msg.joint_names = ['robot2_frame_joint', 'robot2_upper_shaft_joint', 'robot2_bottom_shaft_joint']
         self.pos = 0.0
         self.diff = 0.1
         

@@ -1,0 +1,1 @@
+/home/prathmesh2931/twinws-asd/build/rbcon_sim/ament_cmake_environment_hooks/local_setup.sh

@@ -1,0 +1,8 @@
+source;share/zeus_init/hook/cmake_prefix_path.ps1
+source;share/zeus_init/hook/cmake_prefix_path.dsv
+source;share/zeus_init/hook/cmake_prefix_path.sh
+source;share/zeus_init/local_setup.bash
+source;share/zeus_init/local_setup.dsv
+source;share/zeus_init/local_setup.ps1
+source;share/zeus_init/local_setup.sh
+source;share/zeus_init/local_setup.zsh

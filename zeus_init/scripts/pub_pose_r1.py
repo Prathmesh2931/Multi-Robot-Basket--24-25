@@ -45,17 +45,18 @@ class Publishpose(Node):
             self.get_logger().info(f'{transform}')
             self.pub_pose.publish(msg)
             
-            transform2 = self.tf_buffer.lookup_transform(from_frame_rel2, to_frame_rel2, rclpy.time.Time())
-            msg2.position.x=transform2.transform.translation.x
-            msg2.position.y=transform2.transform.translation.y
-            msg2.position.z=transform2.transform.translation.z
-            msg2.orientation.x=transform2.transform.rotation.x
-            msg2.orientation.y=transform2.transform.rotation.y
-            msg2.orientation.z=transform2.transform.rotation.z
-            msg2.orientation.w=transform2.transform.rotation.w
-            self.get_logger().info(f'{transform2}')
-            self.pub_pose2.publish(msg2)
-            
+            if self.tf_buffer.can_transform('robot2_odom', 'robot2_base_link', rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=2)):
+                transform2 = self.tf_buffer.lookup_transform(from_frame_rel2, to_frame_rel2, rclpy.time.Time())
+                msg2.position.x=transform2.transform.translation.x
+                msg2.position.y=transform2.transform.translation.y
+                msg2.position.z=transform2.transform.translation.z
+                msg2.orientation.x=transform2.transform.rotation.x
+                msg2.orientation.y=transform2.transform.rotation.y
+                msg2.orientation.z=transform2.transform.rotation.z
+                msg2.orientation.w=transform2.transform.rotation.w
+                self.get_logger().info(f'{transform2}')
+                self.pub_pose2.publish(msg2)
+                
             # print(transform)
         else:
             self.get_logger().info('Transform not available')

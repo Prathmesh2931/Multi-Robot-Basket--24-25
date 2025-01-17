@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'launch_controller = sim_controller.launch_controller:main',
-            'ball_spawner = sim_controller.ball_spawner:main'
+            'ball_spawner = sim_controller.ball_spawner:main',
+            'dist_basket=sim_controller.basket_tf:main'
         ],
     },
 )

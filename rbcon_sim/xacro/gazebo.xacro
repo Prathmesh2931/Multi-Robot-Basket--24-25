@@ -134,6 +134,13 @@
 
         </plugin>
 
+        <!-- <plugin
+            filename="ignition-gazebo-joint-controller-system"
+            name="gz::sim::systems::JointController">
+            <joint_name>${robot_name}_joint_control</joint_name>
+            <initial_velocity>5.0</initial_velocity>
+        </plugin> -->
+
         <plugin filename="libignition-gazebo6-imu-system.so" name="ignition::gazebo::systems::Imu" />
         <!-- <plugin filename="libignition-sensors6-gpu_lidar.so" name="ignition::gazebo::sensors::Lidar"/> -->
 

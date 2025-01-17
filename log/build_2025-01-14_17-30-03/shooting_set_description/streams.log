@@ -1,0 +1,18 @@
+[0.803s] Invoking command in '/home/prathmesh2931/twinws-asd/build/shooting_set_description': PYTHONPATH=/home/prathmesh2931/twinws-asd/build/shooting_set_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/prathmesh2931/twinws-asd/install/shooting_set_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/prathmesh2931/twinws-asd/build/shooting_set_description/build --no-deps symlink_data
+[0.997s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[0.997s]   warnings.warn(
+[1.020s] running develop
+[1.156s] running egg_info
+[1.157s] writing shooting_set_description.egg-info/PKG-INFO
+[1.157s] writing dependency_links to shooting_set_description.egg-info/dependency_links.txt
+[1.157s] writing entry points to shooting_set_description.egg-info/entry_points.txt
+[1.157s] writing requirements to shooting_set_description.egg-info/requires.txt
+[1.157s] writing top-level names to shooting_set_description.egg-info/top_level.txt
+[1.158s] reading manifest file 'shooting_set_description.egg-info/SOURCES.txt'
+[1.159s] writing manifest file 'shooting_set_description.egg-info/SOURCES.txt'
+[1.160s] running build_ext
+[1.160s] Creating /home/prathmesh2931/twinws-asd/install/shooting_set_description/lib/python3.10/site-packages/shooting-set-description.egg-link (link to .)
+[1.161s] 
+[1.161s] Installed /home/prathmesh2931/twinws-asd/build/shooting_set_description
+[1.161s] running symlink_data
+[1.181s] Invoked command in '/home/prathmesh2931/twinws-asd/build/shooting_set_description' returned '0': PYTHONPATH=/home/prathmesh2931/twinws-asd/build/shooting_set_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/prathmesh2931/twinws-asd/install/shooting_set_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/prathmesh2931/twinws-asd/build/shooting_set_description/build --no-deps symlink_data

@@ -1,0 +1,75 @@
+[0.456s] Invoking command in '/home/prathmesh2931/twinws-asd/build/zeus_nav': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/prathmesh2931/ey_working/install/ur5_control:/home/prathmesh2931/check_ws/install/ur5_control:/home/prathmesh2931/eyantra_task3/install/ur5_control:/home/prathmesh2931/twin_ws/install/zeus_description:/home/prathmesh2931/twin_ws/install/sim_controller:/home/prathmesh2931/twin_ws/install/shooting_set_description:/opt/ros/humble /usr/bin/cmake /home/prathmesh2931/twinws-asd/zeus_nav -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/prathmesh2931/twinws-asd/install/zeus_nav
+[0.523s] -- The C compiler identification is GNU 11.4.0
+[0.581s] -- The CXX compiler identification is GNU 11.4.0
+[0.589s] -- Detecting C compiler ABI info
+[0.649s] -- Detecting C compiler ABI info - done
+[0.659s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.659s] -- Detecting C compile features
+[0.659s] -- Detecting C compile features - done
+[0.663s] -- Detecting CXX compiler ABI info
+[0.745s] -- Detecting CXX compiler ABI info - done
+[0.751s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.751s] -- Detecting CXX compile features
+[0.752s] -- Detecting CXX compile features - done
+[0.756s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.980s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.043s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.115s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.228s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.229s] -- Added test 'lint_cmake' to check CMake code style
+[1.230s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.233s] -- Added test 'xmllint' to check XML markup files
+[1.235s] -- Configuring done
+[1.237s] -- Generating done
+[1.238s] -- Build files have been written to: /home/prathmesh2931/twinws-asd/build/zeus_nav
+[1.248s] Invoked command in '/home/prathmesh2931/twinws-asd/build/zeus_nav' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/prathmesh2931/ey_working/install/ur5_control:/home/prathmesh2931/check_ws/install/ur5_control:/home/prathmesh2931/eyantra_task3/install/ur5_control:/home/prathmesh2931/twin_ws/install/zeus_description:/home/prathmesh2931/twin_ws/install/sim_controller:/home/prathmesh2931/twin_ws/install/shooting_set_description:/opt/ros/humble /usr/bin/cmake /home/prathmesh2931/twinws-asd/zeus_nav -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/prathmesh2931/twinws-asd/install/zeus_nav
+[1.250s] Invoking command in '/home/prathmesh2931/twinws-asd/build/zeus_nav': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/prathmesh2931/ey_working/install/ur5_control:/home/prathmesh2931/check_ws/install/ur5_control:/home/prathmesh2931/eyantra_task3/install/ur5_control:/home/prathmesh2931/twin_ws/install/zeus_description:/home/prathmesh2931/twin_ws/install/sim_controller:/home/prathmesh2931/twin_ws/install/shooting_set_description:/opt/ros/humble /usr/bin/cmake --build /home/prathmesh2931/twinws-asd/build/zeus_nav -- -j12 -l12
+[1.311s] Built target ament_cmake_python_symlink_zeus_nav
+[1.530s] running egg_info
+[1.531s] creating zeus_nav.egg-info
+[1.531s] writing zeus_nav.egg-info/PKG-INFO
+[1.531s] writing dependency_links to zeus_nav.egg-info/dependency_links.txt
+[1.531s] writing top-level names to zeus_nav.egg-info/top_level.txt
+[1.531s] writing manifest file 'zeus_nav.egg-info/SOURCES.txt'
+[1.533s] reading manifest file 'zeus_nav.egg-info/SOURCES.txt'
+[1.534s] writing manifest file 'zeus_nav.egg-info/SOURCES.txt'
+[1.563s] Built target ament_cmake_python_build_zeus_nav_egg
+[1.574s] Invoked command in '/home/prathmesh2931/twinws-asd/build/zeus_nav' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/prathmesh2931/ey_working/install/ur5_control:/home/prathmesh2931/check_ws/install/ur5_control:/home/prathmesh2931/eyantra_task3/install/ur5_control:/home/prathmesh2931/twin_ws/install/zeus_description:/home/prathmesh2931/twin_ws/install/sim_controller:/home/prathmesh2931/twin_ws/install/shooting_set_description:/opt/ros/humble /usr/bin/cmake --build /home/prathmesh2931/twinws-asd/build/zeus_nav -- -j12 -l12
+[1.575s] Invoking command in '/home/prathmesh2931/twinws-asd/build/zeus_nav': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/prathmesh2931/ey_working/install/ur5_control:/home/prathmesh2931/check_ws/install/ur5_control:/home/prathmesh2931/eyantra_task3/install/ur5_control:/home/prathmesh2931/twin_ws/install/zeus_description:/home/prathmesh2931/twin_ws/install/sim_controller:/home/prathmesh2931/twin_ws/install/shooting_set_description:/opt/ros/humble /usr/bin/cmake --install /home/prathmesh2931/twinws-asd/build/zeus_nav
+[1.583s] -- Install configuration: ""
+[1.583s] -- Execute custom install script
+[1.584s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//launch/turtleBot_bringup_launch.py
+[1.594s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//config/ekf.yaml
+[1.602s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//config/mapper_params_online_async.yaml
+[1.615s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.data
+[1.623s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.pgm
+[1.630s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.posegraph
+[1.641s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//maps/rbcon_arena.yaml
+[1.649s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav//params/nav2_params.yaml
+[1.657s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/pythonpath.sh
+[1.667s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/pythonpath.dsv
+[1.674s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/PKG-INFO
+[1.681s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.689s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.696s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav-0.0.0-py3.10.egg-info/top_level.txt
+[1.704s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav/__init__.py
+[1.714s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/lib/zeus_nav/zeus_nav_cmd.py
+[1.721s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/lib/zeus_nav/turtleBot_bringup_launch.py
+[1.729s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/ament_index/resource_index/package_run_dependencies/zeus_nav
+[1.737s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/ament_index/resource_index/parent_prefix_path/zeus_nav
+[1.744s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/ament_prefix_path.sh
+[1.752s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/ament_prefix_path.dsv
+[1.761s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/path.sh
+[1.769s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/environment/path.dsv
+[1.777s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.bash
+[1.786s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.sh
+[1.797s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.zsh
+[1.807s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/local_setup.dsv
+[1.815s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/package.dsv
+[1.824s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/ament_index/resource_index/packages/zeus_nav
+[1.832s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/cmake/zeus_navConfig.cmake
+[1.842s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/cmake/zeus_navConfig-version.cmake
+[1.851s] -- Symlinking: /home/prathmesh2931/twinws-asd/install/zeus_nav/share/zeus_nav/package.xml
+[1.900s] Listing '/home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav'...
+[1.900s] Compiling '/home/prathmesh2931/twinws-asd/install/zeus_nav/local/lib/python3.10/dist-packages/zeus_nav/__init__.py'...
+[1.906s] Invoked command in '/home/prathmesh2931/twinws-asd/build/zeus_nav' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/prathmesh2931/ey_working/install/ur5_control:/home/prathmesh2931/check_ws/install/ur5_control:/home/prathmesh2931/eyantra_task3/install/ur5_control:/home/prathmesh2931/twin_ws/install/zeus_description:/home/prathmesh2931/twin_ws/install/sim_controller:/home/prathmesh2931/twin_ws/install/shooting_set_description:/opt/ros/humble /usr/bin/cmake --install /home/prathmesh2931/twinws-asd/build/zeus_nav

@@ -1,0 +1,18 @@
+[0.811s] Invoking command in '/home/prathmesh2931/twinws-asd/build/sim_controller': PYTHONPATH=/home/prathmesh2931/twinws-asd/build/sim_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/prathmesh2931/twinws-asd/install/sim_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/prathmesh2931/twinws-asd/build/sim_controller/build --no-deps symlink_data
+[1.046s] running develop
+[1.183s] running egg_info
+[1.183s] writing sim_controller.egg-info/PKG-INFO
+[1.184s] writing dependency_links to sim_controller.egg-info/dependency_links.txt
+[1.184s] writing entry points to sim_controller.egg-info/entry_points.txt
+[1.184s] writing requirements to sim_controller.egg-info/requires.txt
+[1.184s] writing top-level names to sim_controller.egg-info/top_level.txt
+[1.185s] reading manifest file 'sim_controller.egg-info/SOURCES.txt'
+[1.186s] writing manifest file 'sim_controller.egg-info/SOURCES.txt'
+[1.187s] running build_ext
+[1.187s] Creating /home/prathmesh2931/twinws-asd/install/sim_controller/lib/python3.10/site-packages/sim-controller.egg-link (link to .)
+[1.188s] Installing ball_spawner script to /home/prathmesh2931/twinws-asd/install/sim_controller/lib/sim_controller
+[1.188s] Installing launch_controller script to /home/prathmesh2931/twinws-asd/install/sim_controller/lib/sim_controller
+[1.188s] 
+[1.188s] Installed /home/prathmesh2931/twinws-asd/build/sim_controller
+[1.188s] running symlink_data
+[1.211s] Invoked command in '/home/prathmesh2931/twinws-asd/build/sim_controller' returned '0': PYTHONPATH=/home/prathmesh2931/twinws-asd/build/sim_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/prathmesh2931/twinws-asd/install/sim_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/prathmesh2931/twinws-asd/build/sim_controller/build --no-deps symlink_data

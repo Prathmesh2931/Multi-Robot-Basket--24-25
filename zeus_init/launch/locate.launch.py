@@ -49,5 +49,12 @@ def generate_launch_description():
             parameters=[ekf_config_1],
         ),
     ])
+    
+    pose=Node(
+            package='zeus_init',
+            executable='pub_pose_r1.py',
+            name='pub_pose_r1',
+            output='screen',
+            )
 
-    return LaunchDescription([robot1_group, robot2_group])
+    return LaunchDescription([robot1_group, robot2_group,pose])

@@ -382,6 +382,10 @@
    -->
 </link>
 
+<link name="${robot_name}_camera_link_1">
+</link>
+
+
 <link name="base_footprint">
  
 </link>
@@ -391,6 +395,14 @@
   <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
   <parent link="${robot_name}_base_link"/>
   <child link="base_footprint"/>
+</joint>
+
+
+
+<joint name="${robot_name}_camera_base_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_camera_link_1"/>
 </joint>
 
 <joint name="${robot_name}_lidar_base_joint" type="fixed">
@@ -522,4 +534,5 @@
 
 <xacro:lidar frame_id="${robot_name}_lidar_link_1" topic="${robot_name}_scan"/>
 
+<xacro:camera frame_id="${robot_name}_camera_link_1" topic="${robot_name}_camera" height="400" width="500"/>
 </robot>

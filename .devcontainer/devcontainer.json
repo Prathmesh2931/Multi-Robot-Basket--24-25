@@ -5,13 +5,18 @@
   "runArgs": [
     "--privileged",
     "--network=host",
-    "--gpus",
-    "all"
+    "--gpus=all",
+    "--env=DISPLAY",
+    "--env=NVIDIA_DRIVER_CAPABILITIES=all",
+    "--volume=/tmp/.X11-unix:/tmp/.X11-unix"
   ],
 
   "containerEnv": {
-    "NVIDIA_DRIVER_CAPABILITIES": "all"
+      "DISPLAY": ":0",
+      "NVIDIA_DRIVER_CAPABILITIES": "all",
+      "QT_X11_NO_MITSHM": "1"
   },
+
 
   "context": "${localWorkspaceFolder}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/vrc/ws/src,type=bind",

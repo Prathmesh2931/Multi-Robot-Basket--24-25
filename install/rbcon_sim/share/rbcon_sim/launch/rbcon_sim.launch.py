@@ -1,1 +1,0 @@
-/home/prathmesh2931/twinws-asd/rbcon_sim/launch/rbcon_sim.launch.py

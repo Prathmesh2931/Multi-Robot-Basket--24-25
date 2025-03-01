@@ -1,1 +1,0 @@
-/home/prathmesh2931/twinws-asd/zeus_nav/scripts/zeus_nav_cmd.py

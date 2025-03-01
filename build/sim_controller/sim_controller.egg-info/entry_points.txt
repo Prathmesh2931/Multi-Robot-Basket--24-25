@@ -1,4 +1,0 @@
-[console_scripts]
-ball_spawner = sim_controller.ball_spawner:main
-launch_controller = sim_controller.launch_controller:main
-

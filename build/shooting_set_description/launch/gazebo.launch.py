@@ -1,1 +1,0 @@
-/home/prathmesh2931/twinws-asd/shooting_set_description/launch/gazebo.launch.py

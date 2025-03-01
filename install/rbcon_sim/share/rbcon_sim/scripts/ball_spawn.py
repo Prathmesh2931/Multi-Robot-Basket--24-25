@@ -1,1 +1,0 @@
-/home/prathmesh2931/twinws-asd/rbcon_sim/scripts/ball_spawn.py

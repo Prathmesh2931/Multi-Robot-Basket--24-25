@@ -13,7 +13,7 @@ def generate_launch_description():
 
     xacro_file = os.path.join(share_dir, 'urdf', 'shooting_set.xacro')
     robot_description_config = xacro.process_file(xacro_file)
-    
+    vyom_xacro=os.path.join(share_dir, 'urdf', 'shooting_set.xacro')
     
     # Robot 1 URDF
     robot1_urdf = xacro.process_file(xacro_file,mappings={'robot_name': 'robot1'}).toxml()
@@ -21,6 +21,7 @@ def generate_launch_description():
     # Robot 2 URDF
     robot2_urdf = xacro.process_file(xacro_file, mappings={'robot_name': 'robot2'}).toxml()
 
+    vyom_urdf=xacro.process_file(xacro_file, mappings={'robot_name': 'robot2'}).toxml()
 
     robot_urdf = robot_description_config.toxml()
 
@@ -62,7 +63,22 @@ def generate_launch_description():
         remappings=[('/robot_description', '/r2_description')]
                     # ('/joint_states', '/r2_joint_states')]
     )
+    
+    test_robot_state_publisher_node = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        parameters=[
+            {'robot_description': vyom_urdf},
+            # { 'frame_prefix': 'r1_'}
+        ],
+        
+        
+        namespace='r1',
+        remappings=[('/robot_description', '/r1_description'),]
+                    # ('/joint_states', '/r1_joint_states')]
 
+    )
 
 
     joint_state_publisher_node = Node(

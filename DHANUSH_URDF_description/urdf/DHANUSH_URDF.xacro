@@ -1,0 +1,611 @@
+<?xml version="1.0" ?>
+<robot name="DHANUSH_URDF" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+
+
+
+<xacro:arg name="robot_name" default="r2"/>
+<xacro:macro name='set_robot' params='robot_name'/>
+<xacro:property name="robot_name" value="$(arg robot_name)"/>
+
+
+<xacro:include filename="$(find DHANUSH_URDF_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find DHANUSH_URDF_description)/urdf/DHANUSH_URDF.trans" />
+<xacro:include filename="$(find DHANUSH_URDF_description)/urdf/DHANUSH_URDF.gazebo" />
+
+<xacro:include filename="/home/vrc/ws/src/rbcon_sim/xacro/gazebo.xacro"/>
+
+<link name="dhanush_base">
+  <inertial>
+    <origin xyz="0.0056245371804835975 -0.007890587026997242 0.1856506070068571" rpy="0 0 0"/>
+    <mass value="83.82036289282557"/>
+    <inertia ixx="4.208906" iyy="3.962336" izz="5.885585" ixy="0.009456" iyz="-0.003783" ixz="-0.051061"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel1_1">
+  <inertial>
+    <origin xyz="0.022141922225417082 0.022134581045297558 -0.0008946838473226221" rpy="0 0 0"/>
+    <mass value="1.883527237657576"/>
+    <inertia ixx="0.002904" iyy="0.002904" izz="0.002089" ixy="0.000812" iyz="5e-06" ixz="5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.184433 -0.176433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.184433 -0.176433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel2_1">
+  <inertial>
+    <origin xyz="0.02213458104529753 -0.022141922225417915 -0.0008946838473220357" rpy="0 0 0"/>
+    <mass value="1.8835272376575751"/>
+    <inertia ixx="0.002904" iyy="0.002904" izz="0.002089" ixy="-0.000812" iyz="-5e-06" ixz="5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.184433 0.192433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.184433 0.192433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel3_1">
+  <inertial>
+    <origin xyz="-0.02214192222541822 -0.022134581045299195 -0.0008946838473219212" rpy="0 0 0"/>
+    <mass value="1.8835272376575751"/>
+    <inertia ixx="0.002904" iyy="0.002904" izz="0.002089" ixy="0.000812" iyz="-5e-06" ixz="-5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.184433 0.192433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.184433 0.192433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel4_1">
+  <inertial>
+    <origin xyz="-0.022134581045298557 0.022141922225418026 -0.0008946838473226672" rpy="0 0 0"/>
+    <mass value="1.8835272376575805"/>
+    <inertia ixx="0.002904" iyy="0.002904" izz="0.002089" ixy="-0.000812" iyz="5e-06" ixz="-5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.184433 -0.176433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.184433 -0.176433 0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/wheel4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dribbling_hand_1">
+  <inertial>
+    <origin xyz="0.12079312567949163 -0.2755971485238445 0.10358185303606049" rpy="0 0 0"/>
+    <mass value="1.919244870543998"/>
+    <inertia ixx="0.037895" iyy="0.04216" izz="0.047009" ixy="5.1e-05" iyz="9.8e-05" ixz="-0.018333"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1995 -0.268931 -0.693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/dribbling_hand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1995 -0.268931 -0.693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/dribbling_hand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shooting_structue_1">
+  <inertial>
+    <origin xyz="-0.1586024839217363 0.277509015863634 0.30158024959487506" rpy="0 0 0"/>
+    <mass value="1.9106076649610695"/>
+    <inertia ixx="0.123217" iyy="0.060518" izz="0.10165" ixy="0.014495" iyz="-0.022758" ixz="0.026419"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1995 0.284931 -0.693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/shooting_structue_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1995 0.284931 -0.693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/shooting_structue_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shaft1_1">
+  <inertial>
+    <origin xyz="1.8813859566854663e-06 -0.22435063508288797 1.3398021336819e-06" rpy="0 0 0"/>
+    <mass value="2.1975548110903107"/>
+    <inertia ixx="0.032893" iyy="0.011376" izz="0.032893" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.061485 -0.218869 -1.101793" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/shaft1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.061485 -0.218869 -1.101793" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/shaft1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shaft2_1">
+  <inertial>
+    <origin xyz="1.3767010799276003e-06 0.22434972007271994 6.665980741837885e-07" rpy="0 0 0"/>
+    <mass value="2.1975548110905603"/>
+    <inertia ixx="0.032893" iyy="0.011376" izz="0.032893" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.121474 0.235131 -0.815217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/shaft2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.121474 0.235131 -0.815217" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/shaft2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_r_1">
+  <inertial>
+    <origin xyz="-0.00019480641541502752 -0.008462413446196665 -0.06926888945965115" rpy="0 0 0"/>
+    <mass value="0.3944527542929362"/>
+    <inertia ixx="0.000582" iyy="0.00144" izz="0.00099" ixy="-3.4e-05" iyz="-6.2e-05" ixz="-3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.478659 0.109356 -0.837291" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/gripper_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.478659 0.109356 -0.837291" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/gripper_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_l_1">
+  <inertial>
+    <origin xyz="0.013060218260812884 0.008462328463637522 -0.06802644883365982" rpy="0 0 0"/>
+    <mass value="0.3944527542929419"/>
+    <inertia ixx="0.000585" iyy="0.00144" izz="0.000987" ixy="-4.5e-05" iyz="5.4e-05" ixz="-4.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.467287 -0.093359 -0.836225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/gripper_l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.467287 -0.093359 -0.836225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/gripper_l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ext_l1_1">
+  <inertial>
+    <origin xyz="-0.023868683265679758 -0.006446341677445538 0.29351936634705766" rpy="0 0 0"/>
+    <mass value="0.8218698021704669"/>
+    <inertia ixx="0.035992" iyy="0.035938" izz="0.000548" ixy="-8.1e-05" iyz="0.000284" ixz="0.000172"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.275 -0.170431 -0.14" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_l1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.275 -0.170431 -0.14" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_l1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ext_r1_1">
+  <inertial>
+    <origin xyz="-0.0238686832656802 -0.006446748608572916 0.2935193663470582" rpy="0 0 0"/>
+    <mass value="0.821869802170466"/>
+    <inertia ixx="0.035992" iyy="0.035938" izz="0.000548" ixy="-8.1e-05" iyz="0.000284" ixz="0.000172"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.275 0.1865 -0.14" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_r1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.275 0.1865 -0.14" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_r1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ext_l2_1">
+  <inertial>
+    <origin xyz="-1.0547118733938987e-14 4.575050869259911e-07 -0.33750000000000047" rpy="0 0 0"/>
+    <mass value="0.5880600000000034"/>
+    <inertia ixx="0.033461" iyy="0.033461" izz="0.000214" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.295 -0.170431 -0.82" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_l2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.295 -0.170431 -0.82" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_l2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ext_r2_1">
+  <inertial>
+    <origin xyz="-1.1268763699945339e-14 5.0573959436972515e-08 -0.3375" rpy="0 0 0"/>
+    <mass value="0.5880600000000034"/>
+    <inertia ixx="0.033461" iyy="0.033461" izz="0.000214" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.295 0.1865 -0.82" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_r2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.295 0.1865 -0.82" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_r2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ext_l3_1">
+  <inertial>
+    <origin xyz="0.2950027690611332 -0.17033016697762346 -1.1528298488587414" rpy="0 0 0"/>
+    <mass value="0.5047451567949075"/>
+    <inertia ixx="0.029316" iyy="0.029316" izz="0.000132" ixy="-0.0" iyz="-2.1e-05" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.589999 -0.340865 -1.715" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_l3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.589999 -0.340865 -1.715" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_l3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ext_r3_1">
+  <inertial>
+    <origin xyz="0.29500476906113204 0.18660142609124905 -1.1528298488587407" rpy="0 0 0"/>
+    <mass value="0.5047451567949075"/>
+    <inertia ixx="0.029316" iyy="0.029316" izz="0.000132" ixy="-0.0" iyz="-2.1e-05" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.590001 0.372998 -1.715" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_r3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.590001 0.372998 -1.715" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/ext_r3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="receving_bucket_1">
+  <inertial>
+    <origin xyz="-0.0742466528561922 -0.1376498433111394 0.08646908741408932" rpy="0 0 0"/>
+    <mass value="6.482415945722327"/>
+    <inertia ixx="0.16885" iyy="0.066033" izz="0.163866" ixy="0.000651" iyz="0.001156" ixz="0.025293"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.333633 -0.12897 -0.48795" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/receving_bucket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.333633 -0.12897 -0.48795" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/receving_bucket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="dribbling_stroke_1">
+  <inertial>
+    <origin xyz="-0.0029469590240188137 0.0007339051098959968 0.0327003645863464" rpy="0 0 0"/>
+    <mass value="0.02496683420309047"/>
+    <inertia ixx="6.5e-05" iyy="6e-05" izz="9e-06" ixy="-0.0" iyz="1e-06" ixz="5e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.465119 0.004999 -0.895882" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/dribbling_stroke_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.465119 0.004999 -0.895882" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find DHANUSH_URDF_description)/meshes/dribbling_stroke_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="lidar_mount_1d">
+  <inertial>
+    <origin xyz="-0.00610935956784216 7.351152437688521e-05 -0.030597580120748865" rpy="0 0 0"/>
+    <mass value="2.418632879950508"/>
+    <inertia ixx="0.002723" iyy="0.003268" izz="0.002973" ixy="2e-06" iyz="9e-06" ixz="1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/lidar_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/lidar_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_footprint">
+</link>
+
+
+<joint name="footprint_base_vyom" type="fixed">
+  <origin xyz="0.0 1.0 0.02" rpy="0 0 0"/>
+  <parent link="base_footprint"/>
+  <child link="dhanush_base"/>
+
+</joint>
+
+
+<joint name="wheel_fl" type="continuous">
+  <origin xyz="0.184433 0.176433 -0.026" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="wheel1_1"/>
+  <axis xyz="0.707107 0.707107 -0.0"/>
+</joint>
+
+<joint name="wheel_fr" type="continuous">
+  <origin xyz="0.184433 -0.192433 -0.026" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="wheel2_1"/>
+  <axis xyz="0.707107 -0.707107 -0.0"/>
+</joint>
+
+<joint name="wheel_br" type="continuous">
+  <origin xyz="-0.184433 -0.192433 -0.026" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="wheel3_1"/>
+  <axis xyz="-0.707107 -0.707107 -0.0"/>
+</joint>
+
+<joint name="wheel_bl" type="continuous">
+  <origin xyz="-0.184433 0.176433 -0.026" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="wheel4_1"/>
+  <axis xyz="-0.707107 0.707107 -0.0"/>
+</joint>
+
+<!-- <joint name="dribblinghand_revolute" type="continuous"> -->
+<joint name="dribblinghand_revolute" type="fixed">
+
+  <origin xyz="0.1995 0.268931 0.693" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="dribbling_hand_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<!-- <joint name="shotingframe_revolute" type="continuous">   -->
+<joint name="shotingframe_revolute" type="fixed">  
+
+  <origin xyz="0.1995 -0.284931 0.693" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="shooting_structue_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<!-- <joint name="shaft1_revolute" type="continuous"> -->
+<joint name="shaft1_revolute" type="fixed">
+
+  <origin xyz="-0.260985 0.5038 0.408793" rpy="0 0 0"/>
+  <parent link="shooting_structue_1"/>
+  <child link="shaft1_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="shaft2_revolute" type="continuous">
+  <origin xyz="-0.078026 0.0498 0.122217" rpy="0 0 0"/>
+  <parent link="shooting_structue_1"/>
+  <child link="shaft2_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<!-- <joint name="gripper_r" type="continuous"> -->
+<joint name="gripper_r" type="fixed">
+
+  <origin xyz="0.279159 -0.378287 0.144291" rpy="0 0 0"/>
+  <parent link="dribbling_hand_1"/>
+  <child link="gripper_r_1"/>
+  <axis xyz="0.995639 -0.0 0.093292"/>
+</joint>
+
+
+<joint name="lidar_jd" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="lidar_mount_1d"/>
+</joint>
+
+
+<!-- <joint name="gripper_l" type="continuous"> -->
+<joint name="gripper_l" type="fixed">
+
+  <origin xyz="0.267787 -0.175572 0.143225" rpy="0 0 0"/>
+  <parent link="dribbling_hand_1"/>
+  <child link="gripper_l_1"/>
+  <axis xyz="-0.995639 0.0 -0.093292"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="-0.275 0.170431 0.14" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="ext_l1_1"/>
+</joint>
+
+<joint name="Rigid 13" type="fixed">
+  <origin xyz="-0.275 -0.1865 0.14" rpy="0 0 0"/>
+  <parent link="dhanush_base"/>
+  <child link="ext_r1_1"/>
+</joint>
+
+<joint name="ext_l2_slider" type="prismatic">
+  <origin xyz="-0.02 0.0 0.68" rpy="0 0 0"/>
+  <parent link="ext_l1_1"/>
+  <child link="ext_l2_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ext_r2_slider" type="prismatic">
+  <origin xyz="-0.02 0.0 0.68" rpy="0 0 0"/>
+  <parent link="ext_r1_1"/>
+  <child link="ext_r2_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ext_l3_slider" type="prismatic">
+  <origin xyz="-0.294999 0.170434 0.895" rpy="0 0 0"/>
+  <parent link="ext_l2_1"/>
+  <child link="ext_l3_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ext_r3_slider" type="prismatic">
+  <origin xyz="-0.295001 -0.186498 0.895" rpy="0 0 0"/>
+  <parent link="ext_r2_1"/>
+  <child link="ext_r3_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<!-- <joint name="receving_revolute" type="continuous"> -->
+<joint name="receving_revolute" type="fixed">
+
+  <origin xyz="-0.058633 -0.041461 0.34795" rpy="0 0 0"/>
+  <parent link="ext_l1_1"/>
+  <child link="receving_bucket_1"/>
+  <axis xyz="0.0 0.999887 -0.015017"/>
+</joint>
+
+<joint name="dribbling_stroke" type="prismatic">
+  <origin xyz="0.265619 -0.27393 0.202882" rpy="0 0 0"/>
+  <parent link="dribbling_hand_1"/>
+  <child link="dribbling_stroke_1"/>
+  <axis xyz="0.093292 0.0 -0.995639"/>
+  <limit upper="0.0" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+
+<!-- <xacro:mechanum_drive2 fl="wheel_fl" fr="wheel_fr" bl="wheel_bl" br="wheel_br" radius="0.05" /> -->
+
+<xacro:mechanum_drive robot_name="robot2" fl="wheel_fl" fr="wheel_fr" bl="wheel_bl" br="wheel_br" radius="0.05" base_frame="dhanush_base"/>
+<!-- <xacro:lidar robot_name="robot2" frame_id="robot2_lidar" topic="scan"/> -->
+<xacro:robot_plugins robot_name="robot2" base_frame="dhanush_base"/>
+<xacro:lidar robot_name="robot2" frame_id="lidar_mount_1d" topic="scan"/>
+
+<!-- <xacro:lidar frame_id="lidar_mount_1" topic="dhanush_scan"/> -->
+
+</robot>

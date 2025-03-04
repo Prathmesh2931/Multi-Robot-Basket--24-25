@@ -22,11 +22,11 @@ def generate_launch_description():
     )
     posy2_arg = DeclareLaunchArgument(
         'y2',
-        default_value='2.0'
+        default_value='1.0'
     )
     posy_arg = DeclareLaunchArgument(
         'y',
-        default_value='0.0'
+        default_value='-1.0'
     )
     posz_arg = DeclareLaunchArgument(
         'z',
@@ -52,7 +52,7 @@ def generate_launch_description():
         posy_arg,        
         posz_arg,        
         posy2_arg,        
-        spawner,
         spawner2,
+        spawner,
         
     ])

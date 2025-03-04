@@ -9,12 +9,21 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <test_depend>ament_lint_auto</test_depend>
+  <!-- <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
   <test_depend>ros_gz_sim</test_depend>
   <test_depend>ros_gz_bridge</test_depend>
   <test_depend>ros_gz_image</test_depend>
-  <test_depend>ign-ros2-control</test_depend>
+  <test_depend>ign-ros2-control</test_depend> -->
+
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_image</exec_depend>
+  <exec_depend>ign-ros2-control</exec_depend>
+  <exec_depend>ros2_control</exec_depend>
+  <exec_depend>ros2_controllers</exec_depend>
+  <exec_depend>gazebo_ros2_control</exec_depend>
+
 
   <export>
     <build_type>ament_cmake</build_type>

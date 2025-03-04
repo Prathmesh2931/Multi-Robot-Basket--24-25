@@ -9,19 +9,22 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 import os
 def generate_launch_description():
     desc_share = get_package_share_directory('shooting_set_description')
-    r2_share=get_package_share_directory('vrom_description')
+   
+    
+    dhanush_share =get_package_share_directory('DHANUSH_URDF_description')
+    vyom_share=get_package_share_directory('vyom_new_description')
     
     
-    r3_share=get_package_share_directory('ROBOT_1_description')
+    
     # desc_share = get_package_share_directory('zeus_description')
-    gz_share = get_package_share_directory('ros_gz_sim')
+    # gz_share = get_package_share_directory('ros_gz_sim')
     pkg_share = get_package_share_directory('rbcon_sim')
         
 
     display =  IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
-                desc_share,
+                vyom_share,
                 'launch',
                 'display.launch.py'
             ])
@@ -29,15 +32,6 @@ def generate_launch_description():
     )
 
 
-    display_2 =  IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            PathJoinSubstitution([
-                r2_share,
-                'launch',
-                'display.launch.py'
-            ])
-        ])
-    )
     
     
     

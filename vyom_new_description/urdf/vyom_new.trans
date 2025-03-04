@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<robot name="vyom_new" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="rotatry_base_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="rotatry_base_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="rotatry_base_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="shooting_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="shooting_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="shooting_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="shoot_gear_r_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="shoot_gear_r_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="shoot_gear_r_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="shoot_gear_l_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="shoot_gear_l_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="shoot_gear_l_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_r_f_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_r_f_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_r_f_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_r_b_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_r_b_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_r_b_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_l_f_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_l_f_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_l_f_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_l_b_j_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_l_b_j">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_l_b_j_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

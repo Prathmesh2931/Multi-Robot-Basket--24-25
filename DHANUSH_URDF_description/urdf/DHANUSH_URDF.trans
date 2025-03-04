@@ -1,0 +1,180 @@
+<?xml version="1.0" ?>
+<robot name="DHANUSH_URDF" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="wheel_fl_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_fl">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_fl_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_fr_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_fr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_fr_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_br_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_br">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_br_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="wheel_bl_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="wheel_bl">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="wheel_bl_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="dribblinghand_revolute_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="dribblinghand_revolute">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="dribblinghand_revolute_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="shotingframe_revolute_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="shotingframe_revolute">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="shotingframe_revolute_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="shaft1_revolute_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="shaft1_revolute">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="shaft1_revolute_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="shaft2_revolute_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="shaft2_revolute">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="shaft2_revolute_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="gripper_r_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="gripper_r">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="gripper_r_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="gripper_l_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="gripper_l">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="gripper_l_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ext_l2_slider_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ext_l2_slider">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ext_l2_slider_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ext_r2_slider_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ext_r2_slider">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ext_r2_slider_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ext_l3_slider_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ext_l3_slider">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ext_l3_slider_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ext_r3_slider_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="ext_r3_slider">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ext_r3_slider_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="receving_revolute_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="receving_revolute">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="receving_revolute_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="dribbling_stroke_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="dribbling_stroke">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="dribbling_stroke_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

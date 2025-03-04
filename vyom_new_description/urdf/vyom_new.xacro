@@ -1,0 +1,315 @@
+<?xml version="1.0" ?>
+<robot name="vyom_new" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+
+
+<xacro:arg name="robot_name" default="r1"/>
+<xacro:macro name='set_robot' params='robot_name'/>
+<xacro:property name="robot_name" value="$(arg robot_name)"/>
+
+
+<xacro:include filename="$(find vyom_new_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find vyom_new_description)/urdf/vyom_new.trans" />
+<xacro:include filename="$(find vyom_new_description)/urdf/vyom_new.gazebo" />
+
+<!-- <xacro:include filename="$(find rbcon_sim)/xacro/gazebo.xacro"/> -->
+
+<xacro:include filename="/home/vrc/ws/src/rbcon_sim/xacro/gazebo.xacro"/>
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.00036637160964227996 -0.0010544890927864882 0.15599786386739056" rpy="0 0 0"/>
+    <mass value="52.226441412606185"/>
+    <inertia ixx="5.238361" iyy="5.032159" izz="4.534628" ixy="0.0045" iyz="0.052114" ixz="-0.008794"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_mount_1">
+  <inertial>
+    <origin xyz="-0.00610935956784216 7.351152437688521e-05 -0.030597580120748865" rpy="0 0 0"/>
+    <mass value="2.418632879950508"/>
+    <inertia ixx="0.002723" iyy="0.003268" izz="0.002973" ixy="2e-06" iyz="9e-06" ixz="1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/lidar_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/lidar_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rotate_base_1">
+  <inertial>
+    <origin xyz="-0.012739789520343586 -0.0006603304183612074 0.14434401104903638" rpy="0 0 0"/>
+    <mass value="36.802419215699686"/>
+    <inertia ixx="3.168275" iyy="3.116607" izz="1.686624" ixy="-0.023618" iyz="0.113341" ixz="-0.200286"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000786 0.007858 -0.565889" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/rotate_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000786 0.007858 -0.565889" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/rotate_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shooting_frame_v1_1">
+  <inertial>
+    <origin xyz="0.06281866020301274 0.0879350249529965 0.1478332028823739" rpy="0 0 0"/>
+    <mass value="3.8874538510529804"/>
+    <inertia ixx="0.176325" iyy="0.10522" izz="0.187777" ixy="-0.032414" iyz="-0.012823" ixz="0.03005"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.189269 0.034289 -0.823884" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/shooting_frame_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.189269 0.034289 -0.823884" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/shooting_frame_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shooting_gear_r_1">
+  <inertial>
+    <origin xyz="0.025889106404898304 -0.010808320426176021 0.061886932350479484" rpy="0 0 0"/>
+    <mass value="1.6105098761844778"/>
+    <inertia ixx="0.003729" iyy="0.003736" izz="0.003686" ixy="4e-06" iyz="9e-06" ixz="-2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.190805 0.124089 -0.893968" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/shooting_gear_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.190805 0.124089 -0.893968" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/shooting_gear_r_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shooting_gear_l_j_1">
+  <inertial>
+    <origin xyz="0.02588879775519349 -0.010808643854365918 0.061887428397258915" rpy="0 0 0"/>
+    <mass value="1.6105098761844858"/>
+    <inertia ixx="0.003729" iyy="0.003736" izz="0.003686" ixy="4e-06" iyz="9e-06" ixz="-2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.055178 -0.230847 -0.899073" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/shooting_gear_l_j_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.055178 -0.230847 -0.899073" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/shooting_gear_l_j_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_f_1">
+  <inertial>
+    <origin xyz="0.0011023853741878309 -0.04365804150609101 4.116116832930672e-07" rpy="0 0 0"/>
+    <mass value="7.033601594483512"/>
+    <inertia ixx="0.011194" iyy="0.018803" izz="0.011192" ixy="-0.000114" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.139177 0.231312 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_r_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.139177 0.231312 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_r_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_b_1">
+  <inertial>
+    <origin xyz="0.001102385374996795 -0.043658041506067585 4.1161168290448913e-07" rpy="0 0 0"/>
+    <mass value="7.033601594483512"/>
+    <inertia ixx="0.011194" iyy="0.018803" izz="0.011192" ixy="-0.000114" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.138423 0.231552 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_r_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.138423 0.231552 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_r_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_f_1">
+  <inertial>
+    <origin xyz="0.001102385374158965 0.04365819945160973 4.11611756491459e-07" rpy="0 0 0"/>
+    <mass value="7.033601594483512"/>
+    <inertia ixx="0.011194" iyy="0.018803" izz="0.011192" ixy="0.000114" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.138777 -0.232183 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_l_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.138777 -0.232183 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_l_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_b_1">
+  <inertial>
+    <origin xyz="0.00024650280706767225 0.04365819945168212 0.0010750714194569036" rpy="0 0 0"/>
+    <mass value="7.033601594483512"/>
+    <inertia ixx="0.011192" iyy="0.018803" izz="0.011194" ixy="2.6e-05" iyz="0.000112" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.138423 -0.232183 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_l_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.138423 -0.232183 0.03693" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vyom_new_description)/meshes/wheel_l_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_footprint">
+
+</link>
+
+<joint name="footprint_base_vyom" type="fixed">
+  <origin xyz="0.0 -1.0 0.02" rpy="0 0 0"/>
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+
+</joint>
+
+<joint name="lidar_j" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_mount_1"/>
+</joint>
+
+<joint name="rotatry_base_j" type="continuous">
+  <origin xyz="0.000786 -0.007858 0.565889" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rotate_base_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="shooting_j" type="fixed">
+  <origin xyz="-0.190055 -0.026431 0.257995" rpy="0 0 0"/>
+  <parent link="rotate_base_1"/>
+  <child link="shooting_frame_v1_1"/>
+  <axis xyz="0.349915 0.936781 0.0"/>
+</joint>
+
+<joint name="shoot_gear_r_j" type="continuous">
+  <origin xyz="-0.001536 -0.0898 0.070084" rpy="0 0 0"/>
+  <parent link="shooting_frame_v1_1"/>
+  <child link="shooting_gear_r_1"/>
+  <axis xyz="0.364564 -0.152519 0.918603"/>
+</joint>
+
+<joint name="shoot_gear_l_j" type="continuous">
+  <origin xyz="0.134091 0.265136 0.075189" rpy="0 0 0"/>
+  <parent link="shooting_frame_v1_1"/>
+  <child link="shooting_gear_l_j_1"/>
+  <axis xyz="0.364564 -0.152519 0.918603"/>
+</joint>
+
+<joint name="wheel_r_f_j" type="continuous">
+  <origin xyz="0.139177 -0.231312 -0.03693" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_f_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="wheel_r_b_j" type="continuous">
+  <origin xyz="-0.138423 -0.231552 -0.03693" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_b_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="wheel_l_f_j" type="continuous">
+  <origin xyz="0.138777 0.232183 -0.03693" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_f_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="wheel_l_b_j" type="continuous">
+  <origin xyz="-0.138423 0.232183 -0.03693" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_b_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+
+<!-- <xacro:mechanum_drive fl="wheel_l_f_j" fr="wheel_r_f_j" bl="wheel_l_b_j" br="wheel_r_b_j" radius="0.05" /> -->
+
+<!-- <xacro:lidar frame_id="lidar_mount_1" topic="robot1_scan"/> -->
+
+<xacro:mechanum_drive robot_name="robot1" fl="wheel_l_f_j" fr="wheel_r_f_j" bl="wheel_l_b_j" br="wheel_r_b_j" radius="0.05" base_frame="base_link"/>
+<xacro:lidar robot_name="robot1" frame_id="lidar_mount_1" topic="scan"/>
+<xacro:robot_plugins robot_name="robot1" base_frame="base_link"/>
+
+<!-- <xacro:camera frame_id="${robot_name}_camera_link_1" topic="${robot_name}_camera" height="400" width="500"/> -->
+
+</robot>

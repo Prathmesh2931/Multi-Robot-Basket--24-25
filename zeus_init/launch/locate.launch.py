@@ -57,4 +57,6 @@ def generate_launch_description():
             output='screen',
             )
 
-    return LaunchDescription([robot1_group, robot2_group,pose])
+    # return LaunchDescription([robot1_group, robot2_group,pose])
+    return LaunchDescription([robot1_group, robot2_group])
+

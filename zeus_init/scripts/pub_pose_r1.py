@@ -30,10 +30,10 @@ class Publishpose(Node):
         msg=Pose()
         msg2=Pose()
         from_frame_rel = 'robot1_odom'
-        to_frame_rel = 'robot1_base_link'
+        to_frame_rel = 'base_link'
         from_frame_rel2 = 'robot2_odom'
-        to_frame_rel2 = 'robot2_base_link'
-        if self.tf_buffer.can_transform('robot1_odom', 'robot1_base_link', rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=2)):
+        to_frame_rel2 = 'dhanush_base'
+        if self.tf_buffer.can_transform('robot1_odom', 'base_link', rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=2)):
             transform = self.tf_buffer.lookup_transform(from_frame_rel, to_frame_rel, rclpy.time.Time())
             msg.position.x=transform.transform.translation.x
             msg.position.y=transform.transform.translation.y
@@ -45,7 +45,7 @@ class Publishpose(Node):
             self.get_logger().info(f'{transform}')
             self.pub_pose.publish(msg)
             
-            if self.tf_buffer.can_transform('robot2_odom', 'robot2_base_link', rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=2)):
+            if self.tf_buffer.can_transform('robot2_odom', 'dhanush_base', rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=2)):
                 transform2 = self.tf_buffer.lookup_transform(from_frame_rel2, to_frame_rel2, rclpy.time.Time())
                 msg2.position.x=transform2.transform.translation.x
                 msg2.position.y=transform2.transform.translation.y

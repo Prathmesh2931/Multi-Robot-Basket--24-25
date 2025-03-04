@@ -1,19 +1,35 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ros2_control">
-    
 
+    <!-- Define ros2_control hardware interface -->
+    <!-- <ros2_control name="ros2_control" type="system">
+        <hardware>
+            <plugin>ign_ros2_control/IgnitionSystemInterface</plugin>
+        </hardware>
+        <joint name="joint1">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint2">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control> -->
+
+    <!-- Load ROS2 Control plugin -->
     <gazebo>
-    <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-        <robot_param>robot_description</robot_param>
-        <robot_param_node>robot_state_publisher</robot_param_node>
-        <!-- <parameters>$(find ign_ros2_control_demos)/config/cart_controller.yaml</parameters> -->
-    </plugin>
-    </gazebo>    
-    
-    <gazebo>
-    <plugin filename="libignition-gazebo6-joint-trajectory-controller-system.so.6" name="ignition::gazebo::systems::JointTrajectoryController">
-    </plugin>
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+        </plugin>
     </gazebo>
 
+    <!-- Load Joint Trajectory Controller -->
+    <gazebo>
+        <plugin filename="libignition-gazebo6-joint-trajectory-controller-system.so.6"
+                name="ignition::gazebo::systems::JointTrajectoryController"/>
+    </gazebo>
 
 </robot>

@@ -1,7 +1,7 @@
 /slam_toolbox_localization_1:
   ros__parameters:
     angle_variance_penalty: 1.0
-    base_frame: base_link
+    base_frame: robot1_base_link
     ceres_dogleg_type: TRADITIONAL_DOGLEG
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_loss_function: None
@@ -71,14 +71,14 @@
     use_response_expansion: true
     use_scan_barycenter: true
     use_scan_matching: true
-    use_sim_time: false
+    use_sim_time: true
     yaw_covariance_scale: 1.0
 
 
 /slam_toolbox_localization_2:
   ros__parameters:
     angle_variance_penalty: 1.0
-    base_frame: base_link
+    base_frame: robot2_base_link
     ceres_dogleg_type: TRADITIONAL_DOGLEG
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_loss_function: None
@@ -148,6 +148,6 @@
     use_response_expansion: true
     use_scan_barycenter: true
     use_scan_matching: true
-    use_sim_time: false
+    use_sim_time: true
     yaw_covariance_scale: 1.0
 

@@ -386,7 +386,7 @@
 </link>
 
 
-<link name="base_footprint">
+<link name="${robot_name}_base_footprint">
  
 </link>
 
@@ -394,7 +394,7 @@
 <joint name="${robot_name}_footprint_base_joint" type="fixed">
   <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
   <parent link="${robot_name}_base_link"/>
-  <child link="base_footprint"/>
+  <child link="${robot_name}_base_footprint"/>
 </joint>
 
 

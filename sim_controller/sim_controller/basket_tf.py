@@ -51,7 +51,7 @@
 
     
 #     def sub_pose(self):
-#         header='base_footprint'
+#         header='map'
 #         child='basket_1'
 #         target_frame='robot1_base_link'
 #         parent_frame ='robot1_odom'
@@ -151,7 +151,7 @@ class Publishpose(Node):
         """Broadcasts the static transform once."""
         static_transform = TransformStamped()
         static_transform.header.stamp = self.get_clock().now().to_msg()
-        static_transform.header.frame_id = "base_footprint"
+        static_transform.header.frame_id = "map"
         static_transform.child_frame_id = "basket_1"
         static_transform.transform.translation.x = 6.455
         static_transform.transform.translation.y = 0.0
@@ -169,7 +169,7 @@ class Publishpose(Node):
         """Broadcasts the static transform once."""
         static_transform = TransformStamped()
         static_transform.header.stamp = self.get_clock().now().to_msg()
-        static_transform.header.frame_id = "base_footprint"
+        static_transform.header.frame_id = "map"
         static_transform.child_frame_id = "basket_2"
         static_transform.transform.translation.x = -6.455
         static_transform.transform.translation.y = 0.0
@@ -200,9 +200,9 @@ class Publishpose(Node):
         dynamic_source_frame_1 = "robot1_odom"
         dynamic_target_frame_2 = "robot2_base_link"
         dynamic_source_frame_2 = "robot2_odom"
-        static_source_frame_1 = "base_footprint"
+        static_source_frame_1 = "map"
         static_target_frame_1 = "basket_1"
-        static_source_frame_2 = "base_footprint"
+        static_source_frame_2 = "map"
         static_target_frame_2 = "basket_2"
         
         # Get dynamic transform

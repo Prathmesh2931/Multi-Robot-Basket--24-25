@@ -22,7 +22,8 @@ setup(
         'console_scripts': [
             'launch_controller = sim_controller.launch_controller:main',
             'ball_spawner = sim_controller.ball_spawner:main',
-            'dist_basket=sim_controller.basket_tf:main'
+            'dist_basket=sim_controller.basket_tf:main',
+            'relative_dist_bot=sim_controller.bot_relative:main'
         ],
     },
 )

@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 
 import rclpy
@@ -23,50 +24,10 @@ class Publishpose(Node):
         self.dynamic_broadcaster = TransformBroadcaster(self)
         self.static_broadcaster = StaticTransformBroadcaster(self)
 
-        # Broadcast static transform once
-        self.broadcast_static_transform_1()
-        
-        self.broadcast_static_transform_2()
-
-
         # Timer for processing dynamic transform
         self.timer = self.create_timer(0.1, self.process_dynamic_transform)
 
-    def broadcast_static_transform_1(self):
-        """Broadcasts the static transform once."""
-        static_transform = TransformStamped()
-        static_transform.header.stamp = self.get_clock().now().to_msg()
-        static_transform.header.frame_id = "map"
-        static_transform.child_frame_id = "basket_1"
-        static_transform.transform.translation.x = 6.455
-        static_transform.transform.translation.y = 0.0
-        static_transform.transform.translation.z = 2.43   
-        static_transform.transform.rotation.x = 0.0
-        static_transform.transform.rotation.y = 0.0
-        static_transform.transform.rotation.z = 0.0
-        static_transform.transform.rotation.w = 1.0  # Identity quaternion
-
-        # Use the static transform broadcaster
-        self.static_broadcaster.sendTransform(static_transform)
-        self.get_logger().info("Static transform broadcasted for basket1 ")
-        
-    def broadcast_static_transform_2(self):
-        """Broadcasts the static transform once."""
-        static_transform = TransformStamped()
-        static_transform.header.stamp = self.get_clock().now().to_msg()
-        static_transform.header.frame_id = "map"
-        static_transform.child_frame_id = "basket_2"
-        static_transform.transform.translation.x = -6.455
-        static_transform.transform.translation.y = 0.0
-        static_transform.transform.translation.z = 2.43
-        static_transform.transform.rotation.x = 0.0
-        static_transform.transform.rotation.y = 0.0
-        static_transform.transform.rotation.z = 0.0
-        static_transform.transform.rotation.w = 1.0  # Identity quaternion
-
-        # Use the static transform broadcaster
-        self.static_broadcaster.sendTransform(static_transform)
-        self.get_logger().info("Static transform broadcasted. for basket 2")
+    
 
     def get_dynamic_transform(self, target_frame, source_frame):
         """Retrieves the dynamic transform between two frames."""
@@ -85,10 +46,7 @@ class Publishpose(Node):
         dynamic_source_frame_1 = "robot1_odom"
         dynamic_target_frame_2 = "robot2_base_link"
         dynamic_source_frame_2 = "robot2_odom"
-        static_source_frame_1 = "map"
-        static_target_frame_1 = "basket_1"
-        static_source_frame_2 = "map"
-        static_target_frame_2 = "basket_2"
+       
         
         # Get dynamic transform
         dynamic_tf_1 = self.get_dynamic_transform(dynamic_target_frame_1, dynamic_source_frame_1)
@@ -98,24 +56,11 @@ class Publishpose(Node):
         if not dynamic_tf_2:
             return
 
-        # Get static transform
-        try:
-            static_tf_1= self.tf_buffer.lookup_transform(
-                static_source_frame_1, static_target_frame_1, rclpy.time.Time(),
-            )
-            static_tf_2= self.tf_buffer.lookup_transform(
-                static_source_frame_2, static_target_frame_2, rclpy.time.Time(),
-            )
-            
-        except Exception as e:
-            self.get_logger().error(f"Static transform lookup failed: {e}")
-            return
+        
 
         # Combine transforms
-        self.combine_transforms(dynamic_tf_1.transform, static_tf_1,basket='basket_1',robot='r1')
-        self.combine_transforms(dynamic_tf_1.transform, static_tf_2,basket='basket_2',robot='r1') 
-        self.combine_transforms(dynamic_tf_2.transform, static_tf_1,basket='basket_1',robot='r2')
-        self.combine_transforms(dynamic_tf_2.transform, static_tf_2,basket='basket_2',robot='r2') 
+        self.combine_transforms(dynamic_tf_1.transform, dynamic_tf_2.transform,basket='basket_1',robot='r1')
+        
         
         
     def combine_transforms(self, dynamic_tf, static_tf,basket,robot):
@@ -125,8 +70,8 @@ class Publishpose(Node):
         q1 = [dynamic_tf.rotation.x, dynamic_tf.rotation.y, dynamic_tf.rotation.z, dynamic_tf.rotation.w]
 
         # Static translation and rotation
-        t2 = np.array([static_tf.transform.translation.x, static_tf.transform.translation.y, static_tf.transform.translation.z])
-        q2 = [static_tf.transform.rotation.x, static_tf.transform.rotation.y, static_tf.transform.rotation.z, static_tf.transform.rotation.w]
+        t2 = np.array([static_tf.translation.x, static_tf.translation.y, static_tf.translation.z])
+        q2 = [static_tf.rotation.x, static_tf.rotation.y, static_tf.rotation.z, static_tf.rotation.w]
 
         # Convert quaternions to rotation matrices
         r1 = R.from_quat(q1).as_matrix()
@@ -164,10 +109,10 @@ class Publishpose(Node):
         self.dynamic_broadcaster.sendTransform(combined_tf)
         
         dist=math.sqrt( (combined_tf.transform.translation.x**2 + combined_tf.transform.translation.y**2))
-        # yaw=math.atan2(2.0*((combined_tf.transform.rotation.w*combined_tf.transform.rotation.z)+(combined_tf.transform.rotation.x*combined_tf.transform.rotation.y)),1.0-2.0*(combined_tf.transform.rotation.y**2+combined_tf.transform.rotation.z**2))
+        yaw=math.atan2(2.0*((combined_tf.transform.rotation.w*combined_tf.transform.rotation.z)+(combined_tf.transform.rotation.x*combined_tf.transform.rotation.y)),1.0-2.0*(combined_tf.transform.rotation.y**2+combined_tf.transform.rotation.z**2))
         # self.get_logger().info(f"Combined transform broadcasted: {combined_tf}")
-        yaw=math.atan2(combined_tf.transform.translation.y,combined_tf.transform.translation.x)
-        self.get_logger().info(f'Robot {robot} to {basket} distance: {dist} yaw :{yaw}')
+        # yaw=math.atan2(combined_tf.transform.translation.y,combined_tf.transform.translation.x)
+        self.get_logger().info(f'Robot {robot} to r2 distance: {dist} yaw :{yaw}')
 
 
 def main(args=None):

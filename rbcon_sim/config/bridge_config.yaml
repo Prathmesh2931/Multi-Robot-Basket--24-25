@@ -67,22 +67,22 @@
   gz_type_name: "gz.msgs.IMU"
   direction: GZ_TO_ROS
 # joint trajectory control bridge
-- ros_topic_name: "joint_control"
-  gz_topic_name: "joint_control"
-  ros_type_name: "trajectory_msgs/msg/JointTrajectory"
-  gz_type_name: "gz.msgs.JointTrajectory"
-  direction: ROS_TO_GZ
+# - ros_topic_name: "joint_control"
+#   gz_topic_name: "joint_control"
+#   ros_type_name: "trajectory_msgs/msg/JointTrajectory"
+#   gz_type_name: "gz.msgs.JointTrajectory"
+#   direction: ROS_TO_GZ
 # - ros_topic_name: "/r2/joint_control"
 #   gz_topic_name: "/robot2_joint_control"
 #   ros_type_name: "trajectory_msgs/msg/JointTrajectory"
 #   gz_type_name: "gz.msgs.JointTrajectory"
 #   direction: ROS_TO_GZ
 
-# - ros_topic_name: "/r1/joint_control"
-#   gz_topic_name: "/robot1_joint_control"
-#   ros_type_name: "trajectory_msgs/msg/JointTrajectory"
-#   gz_type_name: "gz.msgs.JointTrajectory"
-#   direction: ROS_TO_GZ
+- ros_topic_name: "/r1/joint_control"
+  gz_topic_name: "/robot1_joint_control"
+  ros_type_name: "trajectory_msgs/msg/JointTrajectory"
+  gz_type_name: "gz.msgs.JointTrajectory"
+  direction: ROS_TO_GZ
 
 - ros_topic_name: "/r1/camera"
   gz_topic_name: "/robot1_camera"

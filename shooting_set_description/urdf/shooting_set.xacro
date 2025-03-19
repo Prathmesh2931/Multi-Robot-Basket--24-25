@@ -438,13 +438,35 @@
   <child link="${robot_name}_rf_wheel_1"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
-
+<!-- 
 <joint name="${robot_name}_frame_joint" type="fixed">
   <origin xyz="0.25 0.0 0.05" rpy="0 -0.5 0"/>
   <parent link="${robot_name}_base_link"/>
   <child link="${robot_name}_frame_1"/>
   <axis xyz="0.0 1.0 0.0"/>
+</joint> -->
+
+<!-- <joint name="${robot_name}_frame_joint" type="revolute">
+  <origin xyz="0.25 0.0 0.05" rpy="0 -0.5 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_frame_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="10.0" velocity="1.0" lower="-1.57" upper="1.57"/>
+  <dynamics damping="0.5" friction="0.1"/>
+</joint> -->
+<joint name="${robot_name}_frame_joint" type="revolute">
+  <origin xyz="0.25 0.0 0.05" rpy="0 -0.5 0"/>
+  <parent link="${robot_name}_base_link"/>
+  <child link="${robot_name}_frame_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+
+  <dynamics damping="0.3"/>
+
+  <!-- Limits for safety -->
+  <limit effort="75.0" velocity="7.0" lower="-3.14" upper="3.14"/>
 </joint>
+
+
 
 <joint name="${robot_name}_r1" type="continuous">
   <origin xyz="-0.596972 -0.22 0.593067" rpy="0 0 0"/>
@@ -529,6 +551,21 @@
    <child link="${robot_name}_base_link"/>
 </joint> -->
 
+<!-- <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+</gazebo> -->
+<!-- <transmission name="${robot_name}_frame_joint_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="${robot_name}_frame_joint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="${robot_name}_frame_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </actuator>
+</transmission> -->
 
 <xacro:mechanum_drive fl="${robot_name}_lf_wheel_joint" fr="${robot_name}_rf_wheel_joint" bl="${robot_name}_lb_wheel_joint" br="${robot_name}_rb_wheel_joint" radius="0.05" />
 

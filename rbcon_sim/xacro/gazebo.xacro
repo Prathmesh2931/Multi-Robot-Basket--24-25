@@ -126,13 +126,73 @@
         <plugin filename="libignition-gazebo6-odometry-publisher-system.so"
             name="ignition::gazebo::systems::OdometryPublisher">
             <odom_frame>${robot_name}_odom</odom_frame>
-            <!-- <odom_frame>odom</odom_frame> -->
-
             <robot_base_frame>${robot_name}_base_link</robot_base_frame>
             <odom_topic>/${robot_name}_odom</odom_topic>
             <tf_topic>/tf</tf_topic>
 
         </plugin>
+        <!-- <plugin filename="libignition-gazebo6-joint-controller-system.so"
+            name="ignition::gazebo::systems::JointController">
+            <joint_name>${robot_name}_upper_shaft_joint</joint_name>
+            <joint_name>${robot_name}_bottom_shaft_joint</joint_name>
+            <joint_name>${robot_name}_frame_joint</joint_name>
+            <initial_velocity>0.5</initial_velocity>
+        </plugin> -->
+        <plugin
+            filename="libignition-gazebo-joint-trajectory-controller-system.so"
+            name="ignition::gazebo::systems::JointTrajectoryController">
+            <topic>${robot_name}_joint_control</topic>
+        </plugin>
+        <!-- <plugin
+            filename="libignition-gazebo-joint-trajectory-controller-system.so"
+            name="ignition::gazebo::systems::JointTrajectoryController">
+            <joint_name>${robot_name}_upper_shaft_joint</joint_name>
+            <velocity_p_gain>0.1</velocity_p_gain>
+            <velocity_i_gain>175</velocity_i_gain>
+            <velocity_cmd_min>-10</velocity_cmd_min>
+            <velocity_cmd_max>10</velocity_cmd_max>
+
+            <joint_name>${robot_name}_bottom_shaft_joint</joint_name>
+            <velocity_p_gain>0.1</velocity_p_gain>
+            <velocity_i_gain>200</velocity_i_gain>
+            <velocity_cmd_min>-5</velocity_cmd_min>
+            <velocity_cmd_max>5</velocity_cmd_max>
+        </plugin> -->
+
+        <!-- <plugin
+            filename="libignition-gazebo-joint-trajectory-controller-system.so"
+            name="ignition::gazebo::systems::JointTrajectoryController">
+
+            <joint_name>${robot_name}_upper_shaft_joint</joint_name>
+            <velocity_p_gain>0.5</velocity_p_gain>
+            <velocity_i_gain>5.0</velocity_i_gain>
+            <velocity_d_gain>0.1</velocity_d_gain>
+            <velocity_i_min>-1</velocity_i_min>
+            <velocity_i_max>1</velocity_i_max>
+            <velocity_cmd_min>-5</velocity_cmd_min>
+            <velocity_cmd_max>5</velocity_cmd_max>
+
+            <joint_name>${robot_name}_bottom_shaft_joint</joint_name>
+            <velocity_p_gain>0.5</velocity_p_gain>
+            <velocity_i_gain>5.0</velocity_i_gain>
+            <velocity_d_gain>0.1</velocity_d_gain>
+            <velocity_i_min>-1</velocity_i_min>
+            <velocity_i_max>1</velocity_i_max>
+            <velocity_cmd_min>-5</velocity_cmd_min>
+            <velocity_cmd_max>5</velocity_cmd_max>
+        </plugin> -->
+
+
+        <!-- <plugin
+            filename="libignition-gazebo-joint-trajectory-controller-system.so"
+            name="ignition::gazebo::systems::JointTrajectoryController">
+            
+            <velocity_p_gain>0.1</velocity_p_gain>
+            <velocity_i_gain>180</velocity_i_gain>  
+            <velocity_cmd_min>-10</velocity_cmd_min>
+            <velocity_cmd_max>10</velocity_cmd_max>
+        </plugin> -->
+
 
         <!-- <plugin
             filename="ignition-gazebo-joint-controller-system"
@@ -142,19 +202,9 @@
         </plugin> -->
 
         <plugin filename="libignition-gazebo6-imu-system.so" name="ignition::gazebo::systems::Imu" />
-        <!-- <plugin filename="libignition-sensors6-gpu_lidar.so" name="ignition::gazebo::sensors::Lidar"/> -->
 
 
-        <!-- <plugin filename="libignition-gazebo-sensors-system.so"
-            name="ignition::gazebo::systems::Sensors">
-            <render_engine>ogre</render_engine>
-        </plugin> -->
-
-
-        <!-- <plugin filename="libignition-gazebo6-velocity-control-system.so.6"
-            name="ignition::gazebo::systems::VelocityControl">
-        </plugin> -->
-
+       
     </gazebo>
 
 </robot>

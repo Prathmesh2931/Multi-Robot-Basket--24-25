@@ -1,0 +1,22 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    frame_joint_controller:
+      type: position_controllers/JointPositionController
+
+frame_joint_controller:
+  ros__parameters:
+    joints:
+      - ${robot_name}_frame_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    gains:
+      ${robot_name}_frame_joint:
+        p: 50.0
+        d: 0.5
+        i: 0.0
+        i_clamp: 0.0

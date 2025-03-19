@@ -112,6 +112,13 @@ def generate_launch_description():
         arguments=['-d', rviz_config_file],
         output='screen'
     )
+    
+    frame_joint=Node(
+            package='controller_manager',
+            executable='ros2_control_node',
+            parameters=[os.path.join('shooting_set_description', 'config', 'frame_joint_controller.yaml')],
+            output='screen'
+        )
 
     return LaunchDescription([
         gui_arg,
@@ -120,5 +127,6 @@ def generate_launch_description():
         # joint_state_publisher_node,
         # joint_state_publisher_gui_node,
         # joint_state_publisher_gui_node2,
+        # frame_joint,
         rviz_node
     ])

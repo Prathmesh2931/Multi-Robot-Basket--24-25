@@ -1,0 +1,154 @@
+<?xml version="1.0" ?>
+<robot name="omni_chassis_basic" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find omni_chassis_basic_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find omni_chassis_basic_description)/urdf/omni_chassis_basic.trans" />
+<xacro:include filename="$(find omni_chassis_basic_description)/urdf/omni_chassis_basic.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-6.705630128718006e-18 1.3411260257436013e-17 0.007522699451841583" rpy="0 0 0"/>
+    <mass value="0.6654420680710168"/>
+    <inertia ixx="0.000314" iyy="0.000314" izz="0.000603" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_f_1">
+  <inertial>
+    <origin xyz="0.0035350678118654597 -0.0035350678118654597 3.469446951953614e-18" rpy="0 0 0"/>
+    <mass value="0.0385335973916873"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.033536 0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_r_f.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.033536 0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_r_f.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_b_1">
+  <inertial>
+    <origin xyz="-0.0035350678118654527 -0.0035350678118655013 -3.469446951953614e-18" rpy="0 0 0"/>
+    <mass value="0.0385335973916873"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.033536 0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_r_b.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.033536 0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_r_b.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_f_1">
+  <inertial>
+    <origin xyz="0.0035350678118654874 0.0035350678118654735 3.469446951953614e-18" rpy="0 0 0"/>
+    <mass value="0.0385335973916873"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="1e-06" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.033536 -0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_l_f.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.033536 -0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_l_f.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_b_1">
+  <inertial>
+    <origin xyz="-0.0035350678118654874 0.0035350678118654527 3.469446951953614e-18" rpy="0 0 0"/>
+    <mass value="0.0385335973916873"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="2e-06" ixy="-1e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.033536 -0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_l_b.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.033536 -0.033536 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find omni_chassis_basic_description)/meshes/wheel_l_b.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+<link name="base_footprint">
+ 
+</link>
+
+
+<joint name="footprint_base_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_footprint"/>
+</joint>
+
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.033536 -0.033536 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_f_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="-0.033536 -0.033536 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_b_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.033536 0.033536 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_f_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="-0.033536 0.033536 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_b_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+</robot>

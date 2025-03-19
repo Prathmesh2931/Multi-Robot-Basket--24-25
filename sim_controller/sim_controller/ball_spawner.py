@@ -27,16 +27,16 @@ class ball_spawn(Node):
     def tf_lookup_timer_callback(self):
         try:
             tf=self.tf_buffer.lookup_transform( 
-                                'robot1_odom',
                                 'robot1_base_link',
+                                'robot1_odom',
                                 rclpy.time.Time())
 
             
             self.get_logger().info(f"got transforms {tf.transform.translation} ")
             self.spawn_ball(self.file_name, self.model + str(self.spawnIndex), 
-                            tf.transform.translation.x+0.05,  #0.1
+                            tf.transform.translation.x+-0.09,  #0.1
                             tf.transform.translation.y,
-                            tf.transform.translation.z + 1.201)  #1.2
+                            tf.transform.translation.z + 1.1)  #1.2
 
         except Exception as e:
             self.get_logger().info(f"failed to get transforms {e} ")

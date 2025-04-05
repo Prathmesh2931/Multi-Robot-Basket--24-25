@@ -8,3 +8,13 @@ COPY --chown=1000:1000 . src/
 RUN . /entrypoint.sh && sudo rosdep init && rosdep update && rosdep install --from-paths src --ignore-src -r -y \
     && colcon build \
     && rm src -r
+# Avoid using sudo in Dockerfile unless you're switching users
+# RUN \
+#     if [ -f /entrypoint.sh ]; then . /entrypoint.sh; fi && \
+#     mkdir -p /etc/ros/rosdep/sources.list.d && \
+#     rosdep init && \
+#     rosdep update && \
+#     if [ -d src ]; then rosdep install --from-paths src --ignore-src -r -y; fi && \
+#     rm -rf src && \
+#     mkdir -p ws && \
+#     echo "source ~/ws/install/setup.bash" >> /home/vrc/.bashrc

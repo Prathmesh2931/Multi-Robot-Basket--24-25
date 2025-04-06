@@ -34,7 +34,9 @@ def generate_launch_description():
     rviz_config_file = LaunchConfiguration('rviz_config')
 
     remappings = [('/tf', 'tf'),
-                  ('/tf_static', 'tf_static')]
+                  ('/tf_static', 'tf_static'),
+                  ('/cmd_vel','/r1/cmd_vel'),
+                  ('/scan','/r1/scan')]
 
     param_substitutions = {
         'use_sim_time': use_sim_time,
@@ -56,7 +58,7 @@ def generate_launch_description():
 
     declare_use_namespace_cmd = DeclareLaunchArgument(
         'use_namespace',
-        default_value='False',
+        default_value='True',
         description='Whether to apply a namespace to the navigation stack')
 
     declare_slam_cmd = DeclareLaunchArgument(
@@ -189,11 +191,11 @@ def generate_launch_description():
     ld.add_action(declare_use_composition_cmd)
     ld.add_action(declare_use_respawn_cmd)
     ld.add_action(declare_log_level_cmd)
-    ld.add_action(declare_rviz_config_file_cmd)
-    ld.add_action(start_rviz_cmd)
+    # ld.add_action(declare_rviz_config_file_cmd)
+    # ld.add_action(start_rviz_cmd)
     # ld.add_action(declare_mapper_online_async_param_cmd)
     # ld.add_action(mapper_online_async_param_launch)
-    ld.add_action(robot_localization_node)
+    # ld.add_action(robot_localization_node)
     ld.add_action(bringup_cmd_group)
 
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from launch_ros.actions import Node
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -10,9 +12,15 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     share_dir = get_package_share_directory('shooting_set_description')
+    # print("[DEBUG] xacro path:", xacro_file)
+    # print("[DEBUG] File exists:", os.path.exists(xacro_file))
+    # print("[DEBUG] File size:", os.path.getsize(xacro_file), "bytes")
 
     xacro_file = os.path.join(share_dir, 'urdf', 'shooting_set.xacro')
-    robot_description_config = xacro.process_file(xacro_file)
+    # print("[DEBUG] xacro path:", xacro_file)
+    # print("[DEBUG] File exists:", os.path.exists(xacro_file))
+    # print("[DEBUG] File size:", os.path.getsize(xacro_file), "bytes")
+    # robot_description_config = xacro.process_file(xacro_file)
     vyom_xacro=os.path.join(share_dir, 'urdf', 'shooting_set.xacro')
     
     # Robot 1 URDF
@@ -23,7 +31,7 @@ def generate_launch_description():
 
     vyom_urdf=xacro.process_file(xacro_file, mappings={'robot_name': 'robot2'}).toxml()
 
-    robot_urdf = robot_description_config.toxml()
+    # robot_urdf = robot_description_config.toxml()
 
     rviz_config_file = os.path.join(share_dir, 'config', 'display.rviz')
 

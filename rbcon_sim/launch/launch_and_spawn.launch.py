@@ -9,11 +9,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 import os
 def generate_launch_description():
     desc_share = get_package_share_directory('shooting_set_description')
-    
-    
-    
-    # desc_share = get_package_share_directory('zeus_description')
-    gz_share = get_package_share_directory('ros_gz_sim')
+    # gz_share = get_package_share_directory('ros_gz_sim')
     pkg_share = get_package_share_directory('rbcon_sim')
         
 

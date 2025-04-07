@@ -6,6 +6,9 @@ from sensor_msgs.msg import Joy
 from std_msgs.msg import Float64
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
+from launch.actions import ExecuteProcess
+import subprocess
+
 import time
 import os
 BTN_L2 = 2
@@ -36,7 +39,7 @@ class joyController(Node):
         self.flydw_pub=self.create_publisher(Float64, f"{namespace_prefix}fly_wheel_dw",10)
         self.ser_angle=self.create_publisher(Float64,f"{namespace_prefix}frame_angle",10)
         
-        
+        self.spawner_triggered=False
         
         self.timer = self.create_timer(0.1, self.timer_callback)
         
@@ -44,7 +47,8 @@ class joyController(Node):
         # self.curr_angle=0.0
         
         self.frame_angle=45
-        self.update_fly_sp=300
+        self.update_fly_sp=500
+        self.scale_angle=10
         
         self.msg = Float64()
         self.msg2=Float64()
@@ -70,17 +74,23 @@ class joyController(Node):
                 
             
             if(msg.buttons[SQUARE]==1):
-                self.ser_angle_.data +=0.05
+                self.ser_angle_.data =0.1
+                self.frame_angle+= (self.ser_angle_.data)*self.scale_angle
             if(msg.buttons[CIRCLE]==1):
-                self.ser_angle_.data-=0.05
-                
+                self.ser_angle_.data=-0.1
+                self.frame_angle-=(self.ser_angle_.data)*self.scale_angle
+            if(msg.buttons[BTN_R1]==1 and not self.spawner_triggered):
+                self.get_logger().info("R1 Pressed: Spawning ball...")
+                subprocess.Popen(["ros2", "run", "sim_controller", "ball_spawner"])
+                self.spawner_triggered = True  # prevent multiple triggers until released
             
 
         else:
             self.ser_angle_.data=0.0
             self.msg.data = 0.0
             self.msg2.data=0.0
-           
+            self.frame_angle+=0.0
+            self.spawner_triggered = False 
             
 
         
@@ -99,7 +109,7 @@ class joyController(Node):
         # self.finger_pub.publish(self.finger_msg)
         # self.fly_pub.publish(self.msg)
         # self.ser_angle.publish(self.ser_angle_)
-        self.get_logger().info(f'flywheel {self.msg.data,self.msg2.data}  angle {self.ser_angle_.data}')
+        self.get_logger().info(f'flywheel {self.msg.data,self.msg2.data}  angle {self.frame_angle}')
 
 
         

@@ -26,47 +26,38 @@
     </xacro:macro>
 
     <xacro:macro name="lidar" params="frame_id topic">
-
-
         <gazebo reference="${frame_id}">
-            <sensor name="${frame_id}" type="gpu_lidar">
-
+            <sensor name="${frame_id}_lidar" type="gpu_lidar">
                 <pose>0 0 0 0 0 0</pose>
-                <gz_frame_id>${frame_id}</gz_frame_id>
-
                 <topic>${topic}</topic>
                 <update_rate>10</update_rate>
-
-                <ray>
+                
+                <ray>  <!-- Changed from ray to ray element -->
                     <scan>
                         <horizontal>
-                            <samples>640</samples>
+                            <samples>300</samples>
                             <resolution>1</resolution>
-                            <min_angle>-3.14</min_angle>
-                            <max_angle>3.14</max_angle>
+                            <min_angle>-3.14</min_angle>  <!-- -80 degrees -->
+                            <max_angle>3.14</max_angle>   <!-- +80 degrees -->
                         </horizontal>
-
-                        <vertical>
-                            <samples>1</samples>
+                        <!-- <vertical>
+                            <samples>10</samples>
                             <resolution>1</resolution>
-                            <min_angle>0</min_angle>
-                            <max_angle>0</max_angle>
-                        </vertical>
-
+                            <min_angle>0.0</min_angle>  
+                            <max_angle>0.0</max_angle>   
+                        </vertical> -->
                     </scan>
-
                     <range>
-                        <min>0.05</min>
+                        <min>0.08</min>
                         <max>25.0</max>
                         <resolution>0.01</resolution>
                     </range>
-
                 </ray>
-
-                <always_on>1</always_on>
+                
+                <alwaysOn>true</alwaysOn>  <!-- Corrected capitalization -->
                 <visualize>true</visualize>
-
             </sensor>
+            
         </gazebo>
     </xacro:macro>
 
@@ -139,6 +130,33 @@
 
         </plugin>
 
+        <plugin name="ignition::gazebo::systems::JointController" filename="libignition-gazebo6-joint-controller-system.so">
+            <joint_name>${robot_name}_upper_shaft_joint</joint_name>
+            
+            <topic>${robot_name}_fly_wheel_up</topic>
+            <control_type>velocity</control_type>
+        </plugin>
+
+        <plugin name="ignition::gazebo::systems::JointController" filename="libignition-gazebo6-joint-controller-system.so">
+            <joint_name>${robot_name}_bottom_shaft_joint</joint_name>
+            <topic>${robot_name}_fly_wheel_dw</topic>
+            <control_type>velocity</control_type>
+        </plugin>
+
+        <plugin name="ignition::gazebo::systems::JointController" filename="libignition-gazebo6-joint-controller-system.so">
+            <joint_name>${robot_name}_frame_joint</joint_name>
+            <topic>${robot_name}_angle</topic>
+            <control_type>position</control_type>
+        </plugin>
+
+        <!-- <plugin name="ignition::gazebo::systems::JointPositionController" 
+                filename="libignition-gazebo-joint-position-controller-system.so">
+            <joint_name>${robot_name}_frame_joint</joint_name>
+            <topic>${robot_name}_angle</topic>
+        </plugin> -->
+
+
+
         <!-- <plugin
             filename="ignition-gazebo-joint-controller-system"
             name="gz::sim::systems::JointController">
@@ -147,7 +165,7 @@
         </plugin> -->
 
         <plugin filename="libignition-gazebo6-imu-system.so" name="ignition::gazebo::systems::Imu" />
-        <plugin filename="libignition-sensors6-gpu_lidar.so" name="ignition::gazebo::sensors::Lidar"/>
+        <!-- <plugin filename="libignition-sensors6-gpu_lidar.so" name="ignition::gazebo::sensors::Lidar"/> -->
          <!-- <plugin filename="VisualizeLidar" name="Visualize Lidar">
         </plugin> -->
 

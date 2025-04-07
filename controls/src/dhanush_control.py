@@ -3,7 +3,7 @@
 import rclpy
 from rclpy.node import Node 
 from sensor_msgs.msg import Joy
-from std_msgs.msg import Float32
+from std_msgs.msg import Float64
 from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 import time
@@ -32,30 +32,30 @@ class joyController(Node):
         # self.joy_sub = self.create_subscription(Joy, "/joy", self.joy_callback, 10)
         self.joy_sub = self.create_subscription(Joy, f"{namespace_prefix}joy", self.joy_callback, 10)
 
-        self.fly_pub = self.create_publisher(Float32, "/flyWheel_speed", 10)
-        self.ser_angle=self.create_publisher(Float32,"/flywheel_angle",10)
-        self.arm_pub = self.create_publisher(Float32, "/arm_speed", 10)
-        self.finger_pub = self.create_publisher(Bool, "/finger", 10)
+        self.fly_pub = self.create_publisher(Float64, f"{namespace_prefix}fly_wheel_up", 10)
+        self.flydw_pub=self.create_publisher(Float64, f"{namespace_prefix}fly_wheel_dw",10)
+        self.ser_angle=self.create_publisher(Float64,f"{namespace_prefix}frame_angle",10)
+        
         
         
         self.timer = self.create_timer(0.1, self.timer_callback)
         
         self.flyWheelSpeed = 0.0
         # self.curr_angle=0.0
-        self.finger = False
-        self.armState = False
         
+        self.frame_angle=45
+        self.update_fly_sp=300
         
-        self.msg = Float32()
-        self.arm_msg = Float32()
-        self.finger_msg = Bool()
-        self.ser_angle_=Float32()
+        self.msg = Float64()
+        self.msg2=Float64()
+        
+        self.ser_angle_=Float64()
         
         # set initial state to inwards
-        self.arm_msg.data = -ARM_SPEED
+        
         # self.ser_angle_.data=0.0
 
-        self.publishArmState()
+        
         
     def joy_callback(self, msg : Joy):
        
@@ -63,66 +63,43 @@ class joyController(Node):
         thresh_angular=0.001
         # enable button to prevent accidental clicks
         if msg.buttons[BTN_L1] == 1:
+              
+            self.msg.data = -((( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp)
+            self.msg2.data= (( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp
             
-            
-            self.msg.data = ( 1.0 - msg.axes[BTN_L2]) / 2.0
-            self.finger_msg.data = msg.buttons[BTN_R1] == 1
-            
-            
-            
-
-                   
+                
             
             if(msg.buttons[SQUARE]==1):
                 self.ser_angle_.data +=0.05
             if(msg.buttons[CIRCLE]==1):
                 self.ser_angle_.data-=0.05
                 
-            if not self.armState and msg.buttons[TRIANGLE] == 1:
-                self.armState = not self.armState
-                
-                self.arm_msg.data = ARM_SPEED if self.armState else -ARM_SPEED
-                self.publishArmState()
-
-            if self.armState and msg.buttons[CROSS] == 1:
-                self.armState = not self.armState
-
-                self.arm_msg.data = ARM_SPEED if self.armState else -ARM_SPEED
-                self.publishArmState2()
+            
 
         else:
-           
+            self.ser_angle_.data=0.0
             self.msg.data = 0.0
-            self.finger_msg.data = False
-            self.arm_msg.data=0.0
-            self.publishArmState()
+            self.msg2.data=0.0
+           
             
 
         
-        self.finger_pub.publish(self.finger_msg)
+       
         self.fly_pub.publish(self.msg)
+        self.flydw_pub.publish(self.msg2)
         
         self.ser_angle.publish(self.ser_angle_)
         # self.get_logger().info(f'flywheel {self.msg.data} finger {self.finger_msg.data} angle {self.ser_angle_}')
     
     
-    def publishArmState2(self):
-        self.get_logger().warning(f"publishing arm command {self.arm_msg.data}")
-        self.arm_pub.publish(self.arm_msg)
-        # time.sleep(1.0)
-        # self.arm_pub.publish(self.arm_msg)
-    def publishArmState(self):
-        self.get_logger().warning(f"publishing arm command {self.arm_msg.data}")
-        self.arm_pub.publish(self.arm_msg)
-        time.sleep(1.0)
-        self.arm_pub.publish(self.arm_msg)
+    
         
 
     def timer_callback(self):
         # self.finger_pub.publish(self.finger_msg)
         # self.fly_pub.publish(self.msg)
         # self.ser_angle.publish(self.ser_angle_)
-        self.get_logger().info(f'flywheel {self.msg.data} finger {self.finger_msg.data} angle {self.ser_angle_.data}')
+        self.get_logger().info(f'flywheel {self.msg.data,self.msg2.data}  angle {self.ser_angle_.data}')
 
 
         

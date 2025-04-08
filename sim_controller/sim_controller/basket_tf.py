@@ -10,19 +10,36 @@ from geometry_msgs.msg import TransformStamped
 from scipy.spatial.transform import Rotation as R
 import numpy as np
 import math
+from std_msgs.msg import Float32
+from rclpy.callback_groups import ReentrantCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
+import os
 
 class Publishpose(Node):
     def __init__(self):
         super().__init__('pose_sub')
+        # namespace = os.getenv('ROS_NAMESPACE', '')
+        # namespace_prefix = f"{namespace}/" if namespace else ""  # Add prefix only if namespace is set
+        namespace = self.get_namespace()
+        namespace_prefix = f"{namespace}/" if namespace and namespace != '/' else ""
+        print(f"{namespace_prefix}...................................")
+
+        # print(f"{namespace_prefix}...................................")
 
         # TF2 Buffer and Listener for dynamic transforms
+        self.callback_group = ReentrantCallbackGroup()
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
-
+        self.r1_dis_b1=self.create_publisher(Float32,f"{namespace_prefix}dis_b1",10)
+        self.r1_ori_b1=self.create_publisher(Float32,f"{namespace_prefix}ori_b1",10)
+        self.r1_dis_b2=self.create_publisher(Float32,f"{namespace_prefix}dis_b2",10)
+        self.r1_ori_b2=self.create_publisher(Float32,f"{namespace_prefix}ori_b2",10)
+        
         # Broadcasters
         self.dynamic_broadcaster = TransformBroadcaster(self)
         self.static_broadcaster = StaticTransformBroadcaster(self)
-
+        self.dis_r1=Float32()
+        self.ori_r1=Float32()
         # Broadcast static transform once
         self.broadcast_static_transform_1()
         
@@ -119,6 +136,13 @@ class Publishpose(Node):
         
         
     def combine_transforms(self, dynamic_tf, static_tf,basket,robot):
+        namespace = self.get_namespace()
+        namespace_prefix = f"{namespace}/" if namespace and namespace != '/' else ""
+        # print(f"{namespace_prefix}...................................")
+        if namespace_prefix=="/r1/":
+            self.robot_name="r1"
+        else:
+            self.robot_name="r2"
         """Combines dynamic and static transforms into a final transform."""
         # Dynamic translation and rotation
         t1 = np.array([dynamic_tf.translation.x, dynamic_tf.translation.y, dynamic_tf.translation.z])
@@ -167,13 +191,29 @@ class Publishpose(Node):
         # yaw=math.atan2(2.0*((combined_tf.transform.rotation.w*combined_tf.transform.rotation.z)+(combined_tf.transform.rotation.x*combined_tf.transform.rotation.y)),1.0-2.0*(combined_tf.transform.rotation.y**2+combined_tf.transform.rotation.z**2))
         # self.get_logger().info(f"Combined transform broadcasted: {combined_tf}")
         yaw=math.atan2(combined_tf.transform.translation.y,combined_tf.transform.translation.x)
-        self.get_logger().info(f'Robot {robot} to {basket} distance: {dist} yaw :{yaw}')
+        # self.dis_r1.data=dist
+        # self.ori_r1.data=yaw
+        if basket =="basket_1" and robot==self.robot_name:
+            # print(self.dis_r1)
+            self.dis_r1.data=dist
+            self.ori_r1.data=yaw
+            self.r1_dis_b1.publish(self.dis_r1)
+            self.r1_ori_b1.publish(self.ori_r1)
+        if basket=="basket_2" and robot==self.robot_name:
+            self.dis_r1.data=dist
+            self.ori_r1.data=yaw
+            self.r1_dis_b2.publish(self.dis_r1)
+            self.r1_ori_b2.publish(self.ori_r1)
+        # self.get_logger().info(f'Robot {robot} to {basket} distance: {dist} yaw :{yaw}')
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = Publishpose()
-    rclpy.spin(node)
+    thread=MultiThreadedExecutor()
+    thread.add_node(node)
+    thread.spin()
+    node.destroy_node()
     rclpy.shutdown()
 
 

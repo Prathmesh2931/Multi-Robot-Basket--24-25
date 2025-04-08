@@ -8,6 +8,8 @@ from std_msgs.msg import Bool
 from geometry_msgs.msg import Twist
 from launch.actions import ExecuteProcess
 import subprocess
+from service_handler.srv import AlliBs
+from rclpy.qos import QoSProfile
 
 import time
 import os
@@ -38,6 +40,7 @@ class joyController(Node):
         self.fly_pub = self.create_publisher(Float64, f"{namespace_prefix}fly_wheel_up", 10)
         self.flydw_pub=self.create_publisher(Float64, f"{namespace_prefix}fly_wheel_dw",10)
         self.ser_angle=self.create_publisher(Float64,f"{namespace_prefix}frame_angle",10)
+        self.dock_cli=self.create_client(AlliBs,f"{namespace_prefix}Allign",qos_profile=QoSProfile(depth=10))
         
         self.spawner_triggered=False
         
@@ -62,7 +65,12 @@ class joyController(Node):
         
         
     def joy_callback(self, msg : Joy):
-       
+        namespace = os.getenv('ROS_NAMESPACE', '')
+        namespace_prefix = f"{namespace}" if namespace else ""  # Add prefix only if namespace is set
+        if namespace_prefix=="/r1":
+            self.robot_name="r1"
+        else:
+            self.robot_name="r2"
         thresh_linear=0.02
         thresh_angular=0.001
         # enable button to prevent accidental clicks
@@ -72,7 +80,10 @@ class joyController(Node):
             self.msg2.data= (( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp
             
                 
-            
+            if (msg.buttons[TRIANGLE]):
+                self.call_dock(robot=f"{self.robot_name}",basket="b1")
+            if (msg.buttons[CROSS]):
+                self.call_dock(robot=f"{self.robot_name}",basket="b2")
             if(msg.buttons[SQUARE]==1):
                 self.ser_angle_.data =0.1
                 self.frame_angle+= (self.ser_angle_.data)*self.scale_angle
@@ -103,7 +114,15 @@ class joyController(Node):
     
     
     
+    def call_dock(self,robot,basket):
+        self.dock_req=AlliBs.Request()  
+        self.dock_req.robot=robot
+        self.dock_req.basket=basket
         
+        fut=self.dock_cli.call_async(self.dock_req)
+        rclpy.spin_until_future_complete(self,fut)
+        if fut.result() is not None and fut.result().success:
+            self.get_logger().info(f"Task Success Executed ")
 
     def timer_callback(self):
         # self.finger_pub.publish(self.finger_msg)

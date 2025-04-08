@@ -47,6 +47,10 @@ def generate_launch_description():
             ])]))
     
     control_dhanush=Node(package="controls", executable="dhanush_control.py",namespace="r2")
+    
+    basket_tf=Node(package="sim_controller",executable="dist_basket",namespace="r2")
+    allign_service=Node(package="service_handler",executable="bot_allign.py",namespace="r2")
+
     return  LaunchDescription([
         # name_arg,
         # joy,
@@ -54,7 +58,9 @@ def generate_launch_description():
         # control,
         # uros,
         control_dhanush,
-        drive_system
+        drive_system,
+        basket_tf,
+        allign_service
         
         
     ])

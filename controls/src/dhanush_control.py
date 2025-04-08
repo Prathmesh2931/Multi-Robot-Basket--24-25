@@ -34,6 +34,8 @@ class joyController(Node):
         namespace = os.getenv('ROS_NAMESPACE', '')
         namespace_prefix = f"{namespace}/" if namespace else ""  # Add prefix only if namespace is set
         super().__init__("joyController")
+        self.get_logger().info(f"{namespace_prefix}............................")
+
         # self.joy_sub = self.create_subscription(Joy, "/joy", self.joy_callback, 10)
         self.joy_sub = self.create_subscription(Joy, f"{namespace_prefix}joy", self.joy_callback, 10)
 
@@ -65,12 +67,14 @@ class joyController(Node):
         
         
     def joy_callback(self, msg : Joy):
-        namespace = os.getenv('ROS_NAMESPACE', '')
-        namespace_prefix = f"{namespace}" if namespace else ""  # Add prefix only if namespace is set
-        if namespace_prefix=="/r1":
+        namespace = self.get_namespace()
+        namespace_prefix = f"{namespace}/" if namespace and namespace != '/' else ""
+        if namespace_prefix=="/r1/":
             self.robot_name="r1"
         else:
             self.robot_name="r2"
+        self.get_logger().info(f"{self.robot_name}...")
+        # print(f"{namespace_prefix}............................")
         thresh_linear=0.02
         thresh_angular=0.001
         # enable button to prevent accidental clicks
@@ -128,6 +132,7 @@ class joyController(Node):
         # self.finger_pub.publish(self.finger_msg)
         # self.fly_pub.publish(self.msg)
         # self.ser_angle.publish(self.ser_angle_)
+        
         self.get_logger().info(f'flywheel {self.msg.data,self.msg2.data}  angle {self.frame_angle}')
 
 

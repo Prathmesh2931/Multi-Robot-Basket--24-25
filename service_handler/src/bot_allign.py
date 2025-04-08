@@ -99,15 +99,18 @@ class Service_handle(Node):
         self.robot=request.robot
         self.basket=request.basket
         self.task_complete=False
+        self.Ori_complete=False
         self.start=True
         
         rate=self.create_rate(100,self.get_clock())
         while not self.task_complete:
             rate.sleep()
-            
+        
         self.get_logger().info(f"Task Completetd")
         response.success=True
         response.message="Success Full"
+        
+        # self.task_complete=False``
         return response
 
 

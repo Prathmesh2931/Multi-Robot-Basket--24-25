@@ -10,6 +10,7 @@ from launch.actions import ExecuteProcess
 import subprocess
 from service_handler.srv import AlliBs
 from rclpy.qos import QoSProfile
+from rclpy.executors import MultiThreadedExecutor
 
 import time
 import os
@@ -124,9 +125,21 @@ class joyController(Node):
         self.dock_req.basket=basket
         
         fut=self.dock_cli.call_async(self.dock_req)
-        rclpy.spin_until_future_complete(self,fut)
-        if fut.result() is not None and fut.result().success:
-            self.get_logger().info(f"Task Success Executed ")
+        fut.add_done_callback(self.dock_response_cb)
+
+        # rclpy.spin_until_future_complete(self,fut)
+        # if fut.result() is not None and fut.result().success:
+        #     self.get_logger().info(f"Task Success Executed ")
+            
+    def dock_response_cb(self, future):
+        try:
+            response = future.result()
+            if response.success:
+                self.get_logger().info("Task Success Executed")
+            else:
+                self.get_logger().warn("Docking failed")
+        except Exception as e:
+            self.get_logger().error(f"Service call failed: {e}")
 
     def timer_callback(self):
         # self.finger_pub.publish(self.finger_msg)
@@ -139,9 +152,12 @@ class joyController(Node):
         
 def main():
     rclpy.init()
-    
+    thread=MultiThreadedExecutor()
     cont = joyController()
-    rclpy.spin(cont)
+    thread.add_node(cont)
+    thread.spin()
+    cont.destroy_node()
+    rclpy.shutdown()
 
 
 if __name__ == "__main__":

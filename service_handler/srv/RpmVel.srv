@@ -1,0 +1,8 @@
+float32 distance
+float32 height 
+float32 wheel_radius 
+float32 angle
+---
+float32 vel
+float32 rpm
+bool success 

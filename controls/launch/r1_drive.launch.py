@@ -52,6 +52,10 @@ def generate_launch_description():
     
     allign_service=Node(package="service_handler",executable="bot_allign.py",namespace="r1")
     
+    shoot_service=Node(package="service_handler",executable="bot_shoot.py",namespace="r1")
+    
+    rpm_set=Node(package="service_handler",executable="fly_RPM.py",namespace="r1")
+    
     return  LaunchDescription([
         # name_arg,
         # joy,
@@ -61,6 +65,8 @@ def generate_launch_description():
         control_dhanush,
         drive_system,
         basket_tf,
-        allign_service,
+        # allign_service,
+        shoot_service,
+        rpm_set
         
     ])

@@ -18,6 +18,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/AlliBs.srv"
+  "srv/RpmVel.srv"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
@@ -50,6 +51,8 @@ install(
 install(
   PROGRAMS
   src/bot_allign.py
+  src/fly_RPM.py
+  src/bot_shoot.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

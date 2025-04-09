@@ -50,6 +50,10 @@ def generate_launch_description():
     
     basket_tf=Node(package="sim_controller",executable="dist_basket",namespace="r2")
     allign_service=Node(package="service_handler",executable="bot_allign.py",namespace="r2")
+    
+    shoot_service=Node(package="service_handler",executable="bot_shoot.py",namespace="r2")
+
+    rpm_set=Node(package="service_handler",executable="fly_RPM.py",namespace="r2")
 
     return  LaunchDescription([
         # name_arg,
@@ -60,7 +64,9 @@ def generate_launch_description():
         control_dhanush,
         drive_system,
         basket_tf,
-        allign_service
+        # allign_service,
         
+        shoot_service,
+        rpm_set
         
     ])

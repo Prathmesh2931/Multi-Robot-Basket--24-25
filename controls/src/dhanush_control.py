@@ -11,6 +11,8 @@ import subprocess
 from service_handler.srv import AlliBs
 from rclpy.qos import QoSProfile
 from rclpy.executors import MultiThreadedExecutor
+from std_msgs.msg import Float32
+
 
 import time
 import os
@@ -44,17 +46,20 @@ class joyController(Node):
         self.flydw_pub=self.create_publisher(Float64, f"{namespace_prefix}fly_wheel_dw",10)
         self.ser_angle=self.create_publisher(Float64,f"{namespace_prefix}frame_angle",10)
         self.dock_cli=self.create_client(AlliBs,f"{namespace_prefix}Allign",qos_profile=QoSProfile(depth=10))
+        self.create_subscription(Float32,f"{namespace_prefix}set_rpm",callback=self.target_rpm,qos_profile=10)
         
         self.spawner_triggered=False
         
         self.timer = self.create_timer(0.1, self.timer_callback)
         
         self.flyWheelSpeed = 0.0
+        self.update_rpm=300
         # self.curr_angle=0.0
         
         self.frame_angle=45
         self.update_fly_sp=500
         self.scale_angle=10
+        self.down_rpm=5
         
         self.msg = Float64()
         self.msg2=Float64()
@@ -65,7 +70,8 @@ class joyController(Node):
         
         # self.ser_angle_.data=0.0
 
-        
+    def target_rpm(self,msg:Float32):
+        self.update_rpm=msg.data    
         
     def joy_callback(self, msg : Joy):
         namespace = self.get_namespace()
@@ -74,15 +80,17 @@ class joyController(Node):
             self.robot_name="r1"
         else:
             self.robot_name="r2"
-        self.get_logger().info(f"{self.robot_name}...")
+        # self.get_logger().info(f"{self.robot_name}...")
         # print(f"{namespace_prefix}............................")
         thresh_linear=0.02
         thresh_angular=0.001
         # enable button to prevent accidental clicks
         if msg.buttons[BTN_L1] == 1:
               
-            self.msg.data = -((( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp)
-            self.msg2.data= (( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp
+            # self.msg.data = -((( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp)
+            # self.msg2.data= (( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_fly_sp
+            self.msg.data = -(((( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_rpm))/self.down_rpm
+            self.msg2.data= ((( 1.0 - msg.axes[BTN_L2]) / 2.0)*self.update_rpm)/self.down_rpm
             
                 
             if (msg.buttons[TRIANGLE]):
@@ -111,10 +119,10 @@ class joyController(Node):
 
         
        
-        self.fly_pub.publish(self.msg)
-        self.flydw_pub.publish(self.msg2)
+        # self.fly_pub.publish(self.msg)
+        # self.flydw_pub.publish(self.msg2)
         
-        self.ser_angle.publish(self.ser_angle_)
+        # self.ser_angle.publish(self.ser_angle_)
         # self.get_logger().info(f'flywheel {self.msg.data} finger {self.finger_msg.data} angle {self.ser_angle_}')
     
     
@@ -145,8 +153,11 @@ class joyController(Node):
         # self.finger_pub.publish(self.finger_msg)
         # self.fly_pub.publish(self.msg)
         # self.ser_angle.publish(self.ser_angle_)
+        self.fly_pub.publish(self.msg)
+        self.flydw_pub.publish(self.msg2)
         
-        self.get_logger().info(f'flywheel {self.msg.data,self.msg2.data}  angle {self.frame_angle}')
+        self.ser_angle.publish(self.ser_angle_)
+        # self.get_logger().info(f'flywheel {self.msg.data,self.msg2.data}  angle {self.frame_angle}')
 
 
         

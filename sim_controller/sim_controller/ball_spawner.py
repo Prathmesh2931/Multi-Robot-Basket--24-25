@@ -25,10 +25,17 @@ class ball_spawn(Node):
         self.spawnIndex = 0
      
     def tf_lookup_timer_callback(self):
+        namespace = self.get_namespace()
+        namespace_prefix = f"{namespace}/" if namespace and namespace != '/' else ""
+        # print(f"{namespace_prefix}...................................")
+        if namespace_prefix=="/r1/":
+            self.robot_name="1"
+        else:
+            self.robot_name="2"
         try:
             tf=self.tf_buffer.lookup_transform( 
-                                'robot1_odom',
-                                'robot1_base_link',
+                                f'robot{self.robot_name}_odom',
+                                f'robot{self.robot_name}_base_link',
                                 rclpy.time.Time())
 
             

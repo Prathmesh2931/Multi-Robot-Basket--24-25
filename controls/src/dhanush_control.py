@@ -59,7 +59,7 @@ class joyController(Node):
         self.frame_angle=45
         self.update_fly_sp=500
         self.scale_angle=10
-        self.down_rpm=5
+        self.down_rpm=9
         
         self.msg = Float64()
         self.msg2=Float64()
@@ -105,7 +105,10 @@ class joyController(Node):
                 self.frame_angle-=(self.ser_angle_.data)*self.scale_angle
             if(msg.buttons[BTN_R1]==1 and not self.spawner_triggered):
                 self.get_logger().info("R1 Pressed: Spawning ball...")
-                subprocess.Popen(["ros2", "run", "sim_controller", "ball_spawner"])
+                subprocess.Popen([
+                    "ros2", "run", "sim_controller", "ball_spawner",
+                    "--ros-args", "-r", f"__ns:=/{self.robot_name}"
+                ])
                 self.spawner_triggered = True  # prevent multiple triggers until released
             
 
